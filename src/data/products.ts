@@ -6,9 +6,9 @@ export const products: Product[] = [
     id: 'prod_SyZ2m0UOo0D0V5',
     name: 'Miami Cuban Set (Bracelet+Chain)',
     price: 299.99,
-    image: '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
+    image: '/WhatsApp Image 2025-09-01 at 19.11.25.jpeg',
     images: [
-      '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
+      '/WhatsApp Image 2025-09-01 at 19.11.25.jpeg',
     ],
     category: 'chains',
     material: 'plated-stainless-steel',
@@ -23,9 +23,9 @@ export const products: Product[] = [
     id: 'prod_SyYyTeOeAlKoAC',
     name: 'Miami Cuban Bracelet',
     price: 169.99,
-    image: '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
+    image: '/WhatsApp Image 2025-09-01 at 19.11.31.jpeg',
     images: [
-      '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
+      '/WhatsApp Image 2025-09-01 at 19.11.31.jpeg',
     ],
     category: 'bracelets',
     material: 'plated-stainless-steel',
