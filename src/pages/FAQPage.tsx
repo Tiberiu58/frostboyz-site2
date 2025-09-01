@@ -22,7 +22,7 @@ const FAQPage: React.FC = () => {
         },
         {
           question: 'Do you offer free shipping?',
-          answer: 'Yes! We offer free worldwide shipping on all orders over 700 RON. Orders under 700 RON have a flat shipping rate of 70 RON.',
+          answer: 'Yes! We offer free worldwide shipping on all orders over 150 RON. Orders under 150 RON have a flat shipping rate of 15 RON.',
         },
         {
           question: 'Can I track my order?',

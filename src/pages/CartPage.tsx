@@ -115,7 +115,7 @@ const CartPage: React.FC = () => {
             {cartTotal < 150 && (
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <p className="text-sm text-blue-800">
-                  Add {(700 - cartTotal).toFixed(2)} RON more for free shipping
+                  Add {(150 - cartTotal).toFixed(2)} RON more for free shipping
                 </p>
               </div>
             )}

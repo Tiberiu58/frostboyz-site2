@@ -185,7 +185,7 @@ const ProductPage: React.FC = () => {
             {/* Shipping Info */}
             <div className="border-t pt-6 text-sm text-gray-600">
               <p className="mb-2">
-                <strong>Free worldwide shipping</strong> on orders over 700 RON
+                <strong>Free worldwide shipping</strong> on orders over 150 RON
               </p>
               <p>Estimated delivery: 7-15 business days</p>
             </div>

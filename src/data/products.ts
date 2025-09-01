@@ -5,7 +5,7 @@ export const products: Product[] = [
   {
     id: 'prod_SwtuH7eQliJfv7',
     name: 'FrostBoyz Cuban Chain – Test',
-    price: 700,
+    price: 150,
     image: 'https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=800',
     images: [
       'https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=800',
