@@ -93,8 +93,17 @@ const HomePage: React.FC = () => {
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60 z-10" />
 
+        {/* Hero Image */}
+        <div className="absolute inset-0 z-15 flex items-center justify-center">
+          <img
+            src="/WhatsApp Image 2025-09-01 at 19.11.25.jpeg"
+            alt="FrostBoyz Premium Jewelry"
+            className="max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain opacity-80"
+          />
+        </div>
+
         {/* Foreground content */}
-        <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-30 text-center max-w-4xl mx-auto px-4">
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
