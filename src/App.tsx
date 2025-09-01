@@ -17,6 +17,7 @@ import SignupPage from './pages/SignupPage';
 import SuccessPage from './pages/SuccessPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import EmailConfirmationPage from './pages/EmailConfirmationPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/signup" element={<AuthGuard requireAuth={false}><SignupPage /></AuthGuard>} />
               <Route path="/forgot-password" element={<AuthGuard requireAuth={false}><ForgotPasswordPage /></AuthGuard>} />
               <Route path="/reset-password" element={<AuthGuard requireAuth={false}><ResetPasswordPage /></AuthGuard>} />
+              <Route path="/confirm-email" element={<EmailConfirmationPage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/about" element={<AboutPage />} />

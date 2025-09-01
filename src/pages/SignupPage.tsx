@@ -47,7 +47,7 @@ const SignupPage: React.FC = () => {
       } else {
         setMessage({ 
           type: 'success', 
-          text: 'Account created! Please check your email and click the confirmation link before signing in.' 
+          text: 'Account created! Please check your email and click the confirmation link to activate your account.' 
         });
       }
     } catch (error: any) {
