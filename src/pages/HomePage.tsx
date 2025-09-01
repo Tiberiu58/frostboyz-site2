@@ -196,8 +196,8 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4">Why Choose FrostBoyz?</h2>
-              <p className="text-xl text-gray-400">Not the man. The Boss.</p>
+              <h2 className="text-4xl font-bold mb-4">Built Different</h2>
+              <p className="text-xl text-gray-400">Where street culture meets premium craftsmanship</p>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
