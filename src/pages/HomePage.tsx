@@ -79,31 +79,17 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section with Spline iframe background */}
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden" style={{ backgroundColor: '#020202' }}>
-        {/* Hero background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/20250901_2155_Treasured Trinkets Uncovered_remix_01k43a467wfthrg9d2ee2zyass.gif" type="video/mp4" />
-        </video>
-
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
-
-        {/* Hero Image */}
-        <div className="absolute inset-0 z-15 flex items-center justify-center">
+        {/* Hero background image */}
+        <div className="absolute inset-0 z-0">
           <img
-            src="/20250901_2205_Mysterious Jewelry Showcase_simple_compose_01k43aky0ze43tz519s1rapgh3 (2).png"
+            src="/20250901_2221_Gold Jewelry Silhouette_remix_01k43bgtrdfyes31p20m8rj6wh.png"
             alt="FrostBoyz Premium Jewelry"
-            className="max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain opacity-80"
+            className="w-full h-full object-cover opacity-75"
           />
         </div>
 
         {/* Foreground content */}
-        <div className="relative z-30 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
