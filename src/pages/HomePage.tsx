@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Shield, Truck, Award } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
@@ -77,16 +78,18 @@ const HomePage: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-blue-900 text-white">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=1600)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        ></div>
+      <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+        {/* Spline Background */}
+        <div className="absolute inset-0 z-0">
+          <Spline 
+            scene="https://prod.spline.design/Bdf8yLKxlidLio8DQd06XZVz/scene.splinecode"
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+        
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
             FrostBoyz<span className="text-blue-400">.</span>
