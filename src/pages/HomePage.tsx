@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           >
-            FrostBoyz<span className="text-blue-400">.</span>
+            <span className="font-black tracking-wider text-shadow-lg uppercase">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
