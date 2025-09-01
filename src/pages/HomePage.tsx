@@ -79,15 +79,6 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Spline Background */}
-        <div className="absolute inset-0 z-0">
-          <Spline 
-            scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-            style={{ width: '100%', height: '100%' }}
-            onError={() => console.log('Spline scene failed to load')}
-          />
-        </div>
-        
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         
