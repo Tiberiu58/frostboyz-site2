@@ -18,6 +18,7 @@ import SuccessPage from './pages/SuccessPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import EmailConfirmationPage from './pages/EmailConfirmationPage';
+import CookieConsent from './components/CookieConsent';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <CookieConsent />
         </div>
       </Router>
     </AppProvider>
