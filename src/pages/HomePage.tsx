@@ -205,7 +205,7 @@ const HomePage: React.FC = () => {
               { icon: Shield, title: 'Premium Quality', desc: 'Hypoallergenic materials, built to last' },
               { icon: Truck, title: 'Fast Shipping', desc: 'Worldwide delivery in 7-15 days' },
               { icon: Award, title: 'Lifetime Warranty', desc: 'Your frost is protected forever' },
-              { icon: Star, title: '5-Star Rated', desc: 'Trusted by thousands of customers' },
+              { icon: Star, title: '5-Star Rated', desc: 'Trusted by customers' },
             ].map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.15} direction="up">
                 <div className="text-center">
