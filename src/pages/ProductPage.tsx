@@ -115,11 +115,13 @@ const ProductPage: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-4 text-sm text-gray-600">
                 <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
-                  {product.material.replace('-', ' ')}
+                  {product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
                 </span>
-                <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
-                  {product.color}
-                </span>
+                {product.color && (
+                  <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
+                    {product.color}
+                  </span>
+                )}
                 <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
                   {product.style.replace('-', ' ')}
                 </span>

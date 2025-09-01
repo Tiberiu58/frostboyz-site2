@@ -84,7 +84,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
         <p className="text-sm text-gray-600 mt-1 capitalize">
-          {product.material.replace('-', ' ')} • {product.color}
+          {product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
+          {product.color && ` • ${product.color}`}
         </p>
       </div>
     </div>

@@ -8,8 +8,8 @@ export interface Product {
   image: string;
   images: string[];
   category: 'chains' | 'bracelets' | 'earrings';
-  material: 'stainless-steel' | 'brass' | 'silver';
-  color: 'gold' | 'silver' | 'black';
+  material: 'stainless-steel' | 'brass' | 'silver' | 'plated-stainless-steel';
+  color?: 'gold' | 'silver' | 'black';
   style: 'cuban' | 'rhombic' | 'iced-out';
   description: string;
   features: string[];

@@ -52,7 +52,8 @@ const CartPage: React.FC = () => {
                       {item.product.name}
                     </Link>
                     <p className="text-sm text-gray-600 capitalize">
-                      {item.product.material.replace('-', ' ')} • {item.product.color}
+                      {item.product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
+                      {item.product.color && ` • ${item.product.color}`}
                     </p>
                     <p className="text-lg font-bold text-gray-900 mt-1">
                       ${item.product.price}
