@@ -55,13 +55,13 @@ export const useSubscription = () => {
     }
 
     const product = getProductByPriceId(subscription.price_id);
-    return product ? product.name : 'Unknown Plan';
+    return product ? product.name : null;
   };
 
   return {
     subscription,
     loading,
     activePlan: getActivePlan(),
-    isActive: subscription?.subscription_status === 'active',
+    isActive: subscription?.subscription_status === 'active' || subscription?.subscription_status === 'trialing',
   };
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Loader2 } from 'lucide-react';
+import { ShoppingBag, Loader2, CreditCard } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 
@@ -81,7 +81,7 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({
         {loading ? (
           <Loader2 className="h-4 w-4 mr-2 animate-spin" />
         ) : (
-          <ShoppingBag className="h-4 w-4 mr-2" />
+          children ? <CreditCard className="h-4 w-4 mr-2" /> : <ShoppingBag className="h-4 w-4 mr-2" />
         )}
         {loading ? 'Processing...' : (children || 'Buy Now')}
       </button>
@@ -89,6 +89,12 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({
       {error && (
         <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-sm text-red-700">{error}</p>
+          <button
+            onClick={() => setError(null)}
+            className="text-xs text-red-600 hover:text-red-800 underline mt-1"
+          >
+            Dismiss
+          </button>
         </div>
       )}
     </div>

@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <CheckoutButton
               priceId={product.stripeConfig.priceId}
               mode={product.stripeConfig.mode}
-              className="p-0 bg-transparent hover:bg-transparent"
+              className="p-0 bg-transparent hover:bg-transparent text-white"
             >
               <ShoppingBag className="h-4 w-4" />
             </CheckoutButton>
@@ -78,9 +78,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </h3>
         </Link>
         <div className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-gray-900">{product.price} RON</span>
+          <span className="text-lg font-bold text-gray-900">RON {product.price}</span>
           {product.originalPrice && (
-            <span className="text-sm text-gray-500 line-through">{product.originalPrice} RON</span>
+            <span className="text-sm text-gray-500 line-through">RON {product.originalPrice}</span>
           )}
         </div>
         <p className="text-sm text-gray-600 mt-1 capitalize">

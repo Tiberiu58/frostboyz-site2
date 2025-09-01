@@ -100,9 +100,9 @@ const ProductPage: React.FC = () => {
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
               <div className="flex items-center space-x-3">
-                <span className="text-2xl font-bold text-gray-900">{product.price} RON</span>
+                <span className="text-2xl font-bold text-gray-900">RON {product.price}</span>
                 {product.originalPrice && (
-                  <span className="text-lg text-gray-500 line-through">{product.originalPrice} RON</span>
+                  <span className="text-lg text-gray-500 line-through">RON {product.originalPrice}</span>
                 )}
               </div>
             </div>
@@ -158,7 +158,7 @@ const ProductPage: React.FC = () => {
                   <CheckoutButton
                     priceId={product.stripeConfig.priceId}
                     mode={product.stripeConfig.mode}
-                    className="flex-1 bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800"
+                    className="flex-1 bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors"
                   >
                     Buy Now
                   </CheckoutButton>
@@ -187,9 +187,12 @@ const ProductPage: React.FC = () => {
             {/* Shipping Info */}
             <div className="border-t pt-6 text-sm text-gray-600">
               <p className="mb-2">
-                <strong>Free worldwide shipping</strong> on orders over 150 RON
+                <strong>Free worldwide shipping</strong> on orders over RON 150
               </p>
-              <p>Estimated delivery: 7-15 business days</p>
+              <p className="mb-2">Estimated delivery: 7-15 business days</p>
+              <p className="text-xs text-gray-500">
+                Secure payment powered by Stripe • 14-day return policy
+              </p>
             </div>
           </div>
         </div>
@@ -209,7 +212,7 @@ const ProductPage: React.FC = () => {
                     />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{product.name}</h3>
-                  <p className="text-lg font-bold text-gray-900">{product.price} RON</p>
+                  <p className="text-lg font-bold text-gray-900">RON {product.price}</p>
                 </div>
               ))}
             </div>
