@@ -27,7 +27,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-black tracking-tight transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
-            FrostBoyz<span className="text-blue-400">.</span>
+            <span className="font-black tracking-wider text-shadow-lg uppercase">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
           </Link>
 
           {/* Desktop Navigation */}
