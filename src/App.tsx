@@ -18,6 +18,7 @@ import SuccessPage from './pages/SuccessPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import EmailConfirmationPage from './pages/EmailConfirmationPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/success" element={<SuccessPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
             </Routes>
           </main>
           <Footer />
