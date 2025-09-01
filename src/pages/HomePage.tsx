@@ -65,19 +65,16 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section with Spline iframe background */}
       <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Full-bleed background */}
-        <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
-          <iframe
-            src="https://my.spline.design/theorbhand-QKztozQ4G3n1OjMoDR1IgtUX/"
-            title="FrostBoyz Spline"
-            className="w-full h-full border-0"
-            loading="eager"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          />
-        </div>
+        {/* Hero background image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=1920)'
+          }}
+        />
 
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/60 z-10" />
 
         {/* Foreground content */}
         <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
