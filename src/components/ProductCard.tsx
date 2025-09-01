@@ -78,9 +78,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </h3>
         </Link>
         <div className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-gray-900">${product.price}</span>
+          <span className="text-lg font-bold text-gray-900">{product.price} RON</span>
           {product.originalPrice && (
-            <span className="text-sm text-gray-500 line-through">${product.originalPrice}</span>
+            <span className="text-sm text-gray-500 line-through">{product.originalPrice} RON</span>
           )}
         </div>
         <p className="text-sm text-gray-600 mt-1 capitalize">

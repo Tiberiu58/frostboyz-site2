@@ -91,31 +91,31 @@ const CartPage: React.FC = () => {
             <div className="space-y-3">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span>${cartTotal.toFixed(2)}</span>
+                <span>{cartTotal.toFixed(2)} RON</span>
               </div>
               
               <div className="flex justify-between text-gray-600">
                 <span>Shipping</span>
-                <span>{shippingCost === 0 ? 'Free' : `$${shippingCost.toFixed(2)}`}</span>
+                <span>{shippingCost === 0 ? 'Free' : `${shippingCost.toFixed(2)} RON`}</span>
               </div>
               
               <div className="flex justify-between text-gray-600">
                 <span>Tax</span>
-                <span>${tax.toFixed(2)}</span>
+                <span>{tax.toFixed(2)} RON</span>
               </div>
               
               <hr className="my-4" />
               
               <div className="flex justify-between text-lg font-semibold text-gray-900">
                 <span>Total</span>
-                <span>${finalTotal.toFixed(2)}</span>
+                <span>{finalTotal.toFixed(2)} RON</span>
               </div>
             </div>
 
             {cartTotal < 150 && (
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <p className="text-sm text-blue-800">
-                  Add ${(150 - cartTotal).toFixed(2)} more for free shipping
+                  Add {(700 - cartTotal).toFixed(2)} RON more for free shipping
                 </p>
               </div>
             )}
