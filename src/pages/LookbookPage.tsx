@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram } from 'lucide-react';
+import { Instagram, Play } from 'lucide-react';
 import TikTokIcon from '../components/TikTokIcon';
 import ScrollReveal from '../components/ScrollReveal';
 
