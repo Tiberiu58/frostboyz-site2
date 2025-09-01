@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
         {/* Hero Image */}
         <div className="absolute inset-0 z-15 flex items-center justify-center">
           <img
-            src="/WhatsApp Image 2025-09-01 at 19.11.25.jpeg"
+            src="/20250901_2205_Mysterious Jewelry Showcase_simple_compose_01k43aky0ze43tz519s1rapgh3 (2).png"
             alt="FrostBoyz Premium Jewelry"
             className="max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain opacity-80"
           />
