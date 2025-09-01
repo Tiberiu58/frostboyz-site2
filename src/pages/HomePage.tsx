@@ -79,15 +79,10 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Spline Background Animation */}
-        <div className="absolute inset-0 z-0">
-          <Spline scene="https://prod.spline.design/QKztozQ4G3n1OjMoDR1IgtUX/scene.splinecode" />
-        </div>
-        
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         
-        <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
             FrostBoyz<span className="text-blue-400">.</span>
           </h1>
