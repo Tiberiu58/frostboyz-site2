@@ -79,13 +79,16 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section with Spline iframe background */}
       <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Hero background image */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=1920)'
-          }}
-        />
+        {/* Hero background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/20250901_2155_Treasured Trinkets Uncovered_remix_01k43a467wfthrg9d2ee2zyass.gif" type="video/mp4" />
+        </video>
 
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60 z-10" />
