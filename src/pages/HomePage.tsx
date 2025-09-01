@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
         {/* Hero background image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/20250901_2221_Gold Jewelry Silhouette_remix_01k43bgtrdfyes31p20m8rj6wh.png"
+            src="/20250901_2230_Silver Jewelry Set_remix_01k43c0skhfre96qrsb43v5af3.png"
             alt="FrostBoyz Premium Jewelry"
             className="w-full h-full object-cover opacity-10"
           />
