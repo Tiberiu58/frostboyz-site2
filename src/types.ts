@@ -1,3 +1,5 @@
+import { StripeProduct } from './stripe-config';
+
 export interface Product {
   id: string;
   name: string;
@@ -12,6 +14,7 @@ export interface Product {
   description: string;
   features: string[];
   inStock: boolean;
+  stripeConfig?: StripeProduct;
 }
 
 export interface CartItem {

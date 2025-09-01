@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Heart, Menu, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import UserMenu from './UserMenu';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +47,7 @@ const Header: React.FC = () => {
 
           {/* Cart & Wishlist */}
           <div className="flex items-center space-x-4">
+            <UserMenu />
             <Link to="/wishlist" className="text-gray-900 hover:text-blue-400 transition-colors">
               <Heart className="h-5 w-5" />
             </Link>

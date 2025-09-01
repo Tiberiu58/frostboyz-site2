@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Heart, ShoppingBag, Shield, Truck, Award, RotateCcw } from 'lucide-react';
 import { products } from '../data/products';
 import { useApp } from '../context/AppContext';
+import CheckoutButton from '../components/CheckoutButton';
 
 const ProductPage: React.FC = () => {
   const { id } = useParams();
@@ -151,13 +152,23 @@ const ProductPage: React.FC = () => {
             {/* Actions */}
             <div className="space-y-4">
               <div className="flex space-x-4">
-                <button
-                  onClick={handleAddToCart}
-                  className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center"
-                >
-                  <ShoppingBag className="h-5 w-5 mr-2" />
-                  Add to Cart
-                </button>
+                {product.stripeConfig ? (
+                  <CheckoutButton
+                    priceId={product.stripeConfig.priceId}
+                    mode={product.stripeConfig.mode}
+                    className="flex-1 bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800"
+                  >
+                    Buy Now
+                  </CheckoutButton>
+                ) : (
+                  <button
+                    onClick={handleAddToCart}
+                    className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center"
+                  >
+                    <ShoppingBag className="h-5 w-5 mr-2" />
+                    Add to Cart
+                  </button>
+                )}
                 <button
                   onClick={handleToggleWishlist}
                   className={`p-3 rounded-lg border-2 transition-colors ${
@@ -169,9 +180,6 @@ const ProductPage: React.FC = () => {
                   <Heart className="h-5 w-5" />
                 </button>
               </div>
-              <button className="w-full bg-blue-400 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-500 transition-colors">
-                Buy Now
-              </button>
             </div>
 
             {/* Shipping Info */}

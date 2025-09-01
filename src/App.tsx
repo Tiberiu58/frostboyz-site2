@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import AuthGuard from './components/AuthGuard';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -11,6 +12,9 @@ import LookbookPage from './pages/LookbookPage';
 import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import SuccessPage from './pages/SuccessPage';
 
 function App() {
   return (
@@ -21,6 +25,8 @@ function App() {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<AuthGuard requireAuth={false}><LoginPage /></AuthGuard>} />
+              <Route path="/signup" element={<AuthGuard requireAuth={false}><SignupPage /></AuthGuard>} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -28,6 +34,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/success" element={<SuccessPage />} />
             </Routes>
           </main>
           <Footer />

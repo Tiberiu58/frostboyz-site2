@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Heart } from 'lucide-react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
+import CheckoutButton from './CheckoutButton';
 
 interface ProductCardProps {
   product: Product;
@@ -49,12 +50,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         >
           <Heart className="h-4 w-4" />
         </button>
-        <button
-          onClick={handleAddToCart}
-          className="p-2 bg-black text-white rounded-full shadow-md hover:bg-gray-800 transition-colors"
-        >
-          <ShoppingBag className="h-4 w-4" />
-        </button>
+        {product.stripeConfig ? (
+          <div className="p-2 bg-black text-white rounded-full shadow-md hover:bg-gray-800 transition-colors">
+            <CheckoutButton
+              priceId={product.stripeConfig.priceId}
+              mode={product.stripeConfig.mode}
+              className="p-0 bg-transparent hover:bg-transparent"
+            >
+              <ShoppingBag className="h-4 w-4" />
+            </CheckoutButton>
+          </div>
+        ) : (
+          <button
+            onClick={handleAddToCart}
+            className="p-2 bg-black text-white rounded-full shadow-md hover:bg-gray-800 transition-colors"
+          >
+            <ShoppingBag className="h-4 w-4" />
+          </button>
+        )}
       </div>
 
       {/* Product Info */}
