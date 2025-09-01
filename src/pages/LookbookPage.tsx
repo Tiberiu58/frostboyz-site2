@@ -100,7 +100,7 @@ const LookbookPage: React.FC = () => {
             Where street culture meets luxury. See how the Frost Fam rocks their ice.
           </p>
           <p className="text-blue-400 font-medium text-lg">
-            "Icy look. Zero melt."
+            "fit is drip. but the frost never melts"
           </p>
         </div>
       </section>
