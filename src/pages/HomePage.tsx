@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Shield, Truck, Award } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
@@ -17,27 +16,14 @@ const HomePage: React.FC = () => {
   const featuredProducts = products.slice(0, 3);
 
   const testimonials = [
-    {
-      name: "Marcus J.",
-      text: "This chain hit different. Pure ice, no cap.",
-      rating: 5,
-    },
-    {
-      name: "Zoe M.",
-      text: "Quality is unmatched. Been wearing daily for months.",
-      rating: 5,
-    },
-    {
-      name: "Tyler K.",
-      text: "Finally found jewelry that matches my vibe. FrostBoyz gets it.",
-      rating: 5,
-    },
+    { name: 'Marcus J.', text: 'This chain hit different. Pure ice, no cap.', rating: 5 },
+    { name: 'Zoe M.', text: 'Quality is unmatched. Been wearing daily for months.', rating: 5 },
+    { name: 'Tyler K.', text: 'Finally found jewelry that matches my vibe. FrostBoyz gets it.', rating: 5 },
   ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowNewsletter(false);
-    // Handle newsletter signup
     setEmail('');
   };
 
@@ -47,7 +33,7 @@ const HomePage: React.FC = () => {
       {showNewsletter && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
-            <button 
+            <button
               onClick={() => setShowNewsletter(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
             >
@@ -77,27 +63,32 @@ const HomePage: React.FC = () => {
         </div>
       )}
 
-      {/* Hero Section */}
+      {/* Hero Section with Spline iframe background */}
       <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
-        {/* Spline Background Animation */}
-        <div className="absolute inset-0 z-0">
-          <Spline scene="https://prod.spline.design/QKztozQ4G3n1OjMoDR1IgtUX/scene.splinecode" />
+        {/* Full-bleed background */}
+        <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
+          <iframe
+            src="https://my.spline.design/theorbhand-QKztozQ4G3n1OjMoDR1IgtUX/"
+            title="FrostBoyz Spline"
+            className="w-full h-full border-0"
+            loading="eager"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          />
         </div>
-        
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-        
+
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+
+        {/* Foreground content */}
         <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
             FrostBoyz<span className="text-blue-400">.</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-medium tracking-wide">
-            Frost never melts.
-          </p>
+          <p className="text-xl md:text-2xl mb-8 font-medium tracking-wide">Frost never melts.</p>
           <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto">
             Born from urban culture. Trap-inspired, icy, bold. Built for the streets, worn like luxury.
           </p>
-          <Link 
+          <Link
             to="/shop"
             className="inline-flex items-center bg-white text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group"
           >
@@ -141,15 +132,15 @@ const HomePage: React.FC = () => {
             <p className="text-xl text-gray-600">Real talk from real customers</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md text-center">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-white p-8 rounded-lg shadow-md text-center">
                 <div className="flex justify-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  {[...Array(t.rating)].map((_, j) => (
+                    <Star key={j} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-lg text-gray-800 mb-4 italic">"{testimonial.text}"</p>
-                <p className="font-semibold text-gray-900">– {testimonial.name}</p>
+                <p className="text-lg text-gray-800 mb-4 italic">"{t.text}"</p>
+                <p className="font-semibold text-gray-900">– {t.name}</p>
               </div>
             ))}
           </div>
@@ -188,7 +179,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-blue-400 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">Built for the streets. Worn like luxury.</h2>
