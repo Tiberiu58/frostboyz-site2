@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Shield, Truck, Award } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const HomePage: React.FC = () => {
+  const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [showNewsletter, setShowNewsletter] = useState(false);
+  const [hasSeenNewsletter, setHasSeenNewsletter] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowNewsletter(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    // Only show newsletter popup if user is logged in and hasn't seen it yet
+    if (user && !hasSeenNewsletter) {
+      const timer = setTimeout(() => setShowNewsletter(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [user, hasSeenNewsletter]);
 
   const featuredProducts = products.slice(0, 3);
 
@@ -24,7 +30,13 @@ const HomePage: React.FC = () => {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowNewsletter(false);
+    setHasSeenNewsletter(true);
     setEmail('');
+  };
+
+  const handleNewsletterClose = () => {
+    setShowNewsletter(false);
+    setHasSeenNewsletter(true);
   };
 
   return (
@@ -34,7 +46,7 @@ const HomePage: React.FC = () => {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
             <button
-              onClick={() => setShowNewsletter(false)}
+              onClick={handleNewsletterClose}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
             >
               ✕
