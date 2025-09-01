@@ -158,18 +158,22 @@ const LookbookPage: React.FC = () => {
               </p>
               <div className="flex justify-center space-x-4">
                 <a 
-                  href="#" 
+                  href="https://www.instagram.com/frostboyz.jewelry?igsh=MWE1dDFkazh2dGV1bA==" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-gradient-to-r from-purple-400 to-pink-400 text-white px-6 py-3 rounded-lg font-semibold hover:from-purple-500 hover:to-pink-500 transition-all"
                 >
                   <Instagram className="h-5 w-5 mr-2" />
-                  @frostboyz
+                  @frostboyz.jewelry
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.tiktok.com/@frostboyzromania?_t=ZN-8zN3Ly3wF54&_r=1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
                   <Play className="h-5 w-5 mr-2" />
-                  TikTok
+                  @frostboyzromania
                 </a>
               </div>
             </div>

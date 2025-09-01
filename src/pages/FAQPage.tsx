@@ -165,6 +165,25 @@ const FAQPage: React.FC = () => {
           <p className="text-lg mb-6">
             Can't find what you're looking for? Our team is here to help.
           </p>
+          <div className="flex justify-center space-x-4 mb-6">
+            <a
+              href="https://www.instagram.com/frostboyz.jewelry?igsh=MWE1dDFkazh2dGV1bA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-200 transition-colors"
+            >
+              Follow us on Instagram
+            </a>
+            <span className="text-white/50">•</span>
+            <a
+              href="https://www.tiktok.com/@frostboyzromania?_t=ZN-8zN3Ly3wF54&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-200 transition-colors"
+            >
+              Follow us on TikTok
+            </a>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"

@@ -45,10 +45,10 @@ const Footer: React.FC = () => {
                 frostboyz.jewelry@gmail.com
               </a>
               <div className="flex space-x-4 pt-2">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.instagram.com/frostboyz.jewelry?igsh=MWE1dDFkazh2dGV1bA==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.tiktok.com/@frostboyzromania?_t=ZN-8zN3Ly3wF54&_r=1" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Music className="h-5 w-5" />
                 </a>
               </div>
