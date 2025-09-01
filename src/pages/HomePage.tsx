@@ -9,15 +9,15 @@ const HomePage: React.FC = () => {
   const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [showNewsletter, setShowNewsletter] = useState(false);
-  const [hasSeenNewsletter, setHasSeenNewsletter] = useState(false);
+  const [hasSubmittedNewsletter, setHasSubmittedNewsletter] = useState(false);
 
   useEffect(() => {
-    // Only show newsletter popup if user is logged in and hasn't seen it yet
-    if (user && !hasSeenNewsletter) {
+    // Only show newsletter popup if user is logged in and hasn't submitted email yet
+    if (user && !hasSubmittedNewsletter) {
       const timer = setTimeout(() => setShowNewsletter(true), 3000);
       return () => clearTimeout(timer);
     }
-  }, [user, hasSeenNewsletter]);
+  }, [user, hasSubmittedNewsletter]);
 
   const featuredProducts = products.slice(0, 3);
 
@@ -30,13 +30,13 @@ const HomePage: React.FC = () => {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowNewsletter(false);
-    setHasSeenNewsletter(true);
+    setHasSubmittedNewsletter(true);
     setEmail('');
   };
 
   const handleNewsletterClose = () => {
     setShowNewsletter(false);
-    setHasSeenNewsletter(true);
+    // Don't set hasSubmittedNewsletter to true, so it can show again
   };
 
   return (
