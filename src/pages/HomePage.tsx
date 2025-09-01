@@ -82,8 +82,9 @@ const HomePage: React.FC = () => {
         {/* Spline Background */}
         <div className="absolute inset-0 z-0">
           <Spline 
-            scene="https://prod.spline.design/Bdf8yLKxlidLio8DQd06XZVz/scene.splinecode"
+            scene="https://prod.spline.design/6Wq5p8nLBGEsrEod/scene.splinecode"
             style={{ width: '100%', height: '100%' }}
+            onError={() => console.log('Spline scene failed to load')}
           />
         </div>
         
