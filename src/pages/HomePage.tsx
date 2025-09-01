@@ -96,13 +96,13 @@ const HomePage: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-6xl md:text-8xl font-bold mb-6 tracking-tight"
           >
-            <span className="font-black tracking-wider text-shadow-lg uppercase">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
+            <span className="font-black tracking-wider text-shadow-lg uppercase text-4xl sm:text-6xl md:text-8xl">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl mb-8 font-medium tracking-wide"
+            className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 font-medium tracking-wide px-4"
           >
             Frost never melts.
           </motion.p>
@@ -110,7 +110,7 @@ const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-4"
           >
             Born from urban culture. Trap-inspired, icy, bold. Built for the streets, worn like luxury.
           </motion.p>
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
           >
             <Link
               to="/shop"
-              className="inline-flex items-center bg-white text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group"
+              className="inline-flex items-center bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group"
             >
               Shop the Frost
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -135,8 +135,8 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Collections</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Featured Collections</h2>
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                 Icy look. Zero melt. Discover our most coveted pieces.
               </p>
             </div>
@@ -167,20 +167,20 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What The Fam Says</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">Real talk from real customers</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">What The Fam Says</h2>
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 px-4">Real talk from real customers</p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 0.2} direction="up">
-                <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md text-center transition-colors duration-300">
+                <div className="bg-white dark:bg-gray-700 p-6 sm:p-8 rounded-lg shadow-md text-center transition-colors duration-300">
                   <div className="flex justify-center mb-4">
                     {[...Array(t.rating)].map((_, j) => (
                       <Star key={j} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg text-gray-800 dark:text-gray-200 mb-4 italic">"{t.text}"</p>
+                  <p className="text-base sm:text-lg text-gray-800 dark:text-gray-200 mb-4 italic">"{t.text}"</p>
                   <p className="font-semibold text-gray-900 dark:text-white">– {t.name}</p>
                 </div>
               </ScrollReveal>
@@ -194,11 +194,11 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4">Built Different</h2>
-              <p className="text-xl text-gray-300">Where street culture meets premium craftsmanship</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 px-4">Built Different</h2>
+              <p className="text-lg sm:text-xl text-gray-300 px-4">Where street culture meets premium craftsmanship</p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
               { icon: Shield, title: 'Premium Quality', desc: 'Hypoallergenic materials, built to last' },
               { icon: Truck, title: 'Fast Shipping', desc: 'Worldwide delivery in 7-15 days' },
@@ -206,9 +206,9 @@ const HomePage: React.FC = () => {
               { icon: Star, title: '5-Star Rated', desc: 'Trusted by customers' },
             ].map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.15} direction="up">
-                <div className="text-center">
+                <div className="text-center px-4">
                   <item.icon className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-300">{item.desc}</p>
                 </div>
               </ScrollReveal>
@@ -221,11 +221,11 @@ const HomePage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-blue-400 to-blue-600 text-white">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-4">Built for the streets. Worn like luxury.</h2>
-            <p className="text-xl mb-8">Join the movement. Elevate your game.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Built for the streets. Worn like luxury.</h2>
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8">Join the movement. Elevate your game.</p>
             <Link
               to="/shop"
-              className="inline-flex items-center bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+              className="inline-flex items-center bg-black dark:bg-white text-white dark:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               Start Your Collection
               <ArrowRight className="ml-2 h-5 w-5" />

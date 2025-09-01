@@ -113,8 +113,8 @@ const FAQPage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Frequently Asked Questions</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 px-4">
             Got questions? We got answers. Everything you need to know about FrostBoyz.
           </p>
         </div>
@@ -124,7 +124,7 @@ const FAQPage: React.FC = () => {
           {faqs.map((category, categoryIndex) => (
             <div key={categoryIndex} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
               <div className="bg-gray-900 dark:bg-gray-700 text-white px-6 py-4">
-                <h2 className="text-xl font-semibold">{category.category}</h2>
+                <h2 className="text-lg sm:text-xl font-semibold">{category.category}</h2>
               </div>
               
               <div className="divide-y divide-gray-200 dark:divide-gray-600">
@@ -136,9 +136,9 @@ const FAQPage: React.FC = () => {
                     <div key={itemIndex} className="border-b border-gray-200 dark:border-gray-600 last:border-b-0">
                       <button
                         onClick={() => toggleItem(globalIndex)}
-                        className="w-full px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex justify-between items-center"
+                        className="w-full px-4 sm:px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex justify-between items-center"
                       >
-                        <span className="font-medium text-gray-900 dark:text-white pr-4">{item.question}</span>
+                        <span className="font-medium text-gray-900 dark:text-white pr-4 text-sm sm:text-base">{item.question}</span>
                         {isOpen ? (
                           <ChevronUp className="h-5 w-5 text-gray-400 dark:text-gray-300 flex-shrink-0" />
                         ) : (
@@ -147,8 +147,8 @@ const FAQPage: React.FC = () => {
                       </button>
                       
                       {isOpen && (
-                        <div className="px-6 pb-4">
-                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{item.answer}</p>
+                        <div className="px-4 sm:px-6 pb-4">
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base">{item.answer}</p>
                         </div>
                       )}
                     </div>
@@ -160,40 +160,40 @@ const FAQPage: React.FC = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg text-white p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Still have questions?</h3>
-          <p className="text-lg mb-6">
+        <div className="mt-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg text-white p-6 sm:p-8 text-center mx-4 sm:mx-0">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4">Still have questions?</h3>
+          <p className="text-base sm:text-lg mb-6">
             Can't find what you're looking for? Our team is here to help.
           </p>
-          <div className="flex justify-center space-x-4 mb-6">
+          <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-6">
             <a
               href="https://www.instagram.com/frostboyz.jewelry?igsh=MWE1dDFkazh2dGV1bA=="
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-200 transition-colors"
+              className="text-white hover:text-blue-200 transition-colors text-sm sm:text-base"
             >
               Follow us on Instagram
             </a>
-            <span className="text-white/50">•</span>
+            <span className="text-white/50 hidden sm:inline">•</span>
             <a
               href="https://www.tiktok.com/@frostboyzromania?_t=ZN-8zN3Ly3wF54&_r=1"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-blue-200 transition-colors"
+              className="text-white hover:text-blue-200 transition-colors text-sm sm:text-base"
             >
               Follow us on TikTok
             </a>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-block bg-white text-blue-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm sm:text-base"
             >
               Contact Support
             </a>
             <a
               href="mailto:frostboyz.jewelry@gmail.com"
-              className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="inline-block border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-sm sm:text-base"
             >
               Email Us
             </a>

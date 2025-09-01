@@ -71,19 +71,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-400 transition-colors">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-400 transition-colors text-sm sm:text-base">
             {product.name}
           </h3>
         </Link>
         <div className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-gray-900 dark:text-white">RON {product.price}</span>
+          <span className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">RON {product.price}</span>
           {product.originalPrice && (
-            <span className="text-sm text-gray-500 dark:text-gray-400 line-through">RON {product.originalPrice}</span>
+            <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-through">RON {product.originalPrice}</span>
           )}
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 capitalize">
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1 capitalize">
           {product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
           {product.color && ` • ${product.color}`}
         </p>

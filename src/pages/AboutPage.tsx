@@ -38,8 +38,8 @@ const AboutPage: React.FC = () => {
           />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">About FrostBoyz<span className="text-blue-400">.</span></h1>
-          <p className="text-xl leading-relaxed">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">About FrostBoyz<span className="text-blue-400">.</span></h1>
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed px-4">
             Born from urban culture, FrostBoyz is more than jewelry. It's attitude. 
             Trap-inspired, icy, bold. We don't just make accessories – we craft statements.
           </p>
@@ -52,8 +52,8 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Our Story</h2>
-                <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Our Story</h2>
+                <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   <p>
                     FrostBoyz was born in the heart of the culture – where hip-hop meets high fashion, 
                     where the streets dictate style, and where authenticity isn't just a word, it's a way of life.
@@ -70,7 +70,7 @@ const AboutPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="mt-8">
-                  <blockquote className="text-2xl font-bold text-blue-400 italic">
+                  <blockquote className="text-xl sm:text-2xl font-bold text-blue-400 italic">
                     "Frost never melts."
                   </blockquote>
                   <p className="text-gray-600 dark:text-gray-400 mt-2">– Our founding principle</p>
@@ -78,7 +78,7 @@ const AboutPage: React.FC = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.3}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0">
                 <img
                   src="https://images.pexels.com/photos/9026226/pexels-photo-9026226.jpeg?auto=compress&cs=tinysrgb&w=600"
                   alt="Craftsmanship"
@@ -110,19 +110,19 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Stand For</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">What We Stand For</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
                 Our values aren't just words on a page – they're the DNA of everything we create.
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value, index) => (
               <ScrollReveal key={index} delay={index * 0.1} direction="up">
-                <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-all duration-300">
+                <div className="bg-white dark:bg-gray-700 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-all duration-300">
                   <value.icon className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{value.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">{value.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{value.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -134,13 +134,13 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-black text-white">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
-            <p className="text-xl leading-relaxed mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
               To elevate the culture through premium jewelry that speaks to your hustle, 
               your grind, and your success. We're not just accessorizing your outfit – 
               we're amplifying your energy.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               {[
                 { stat: '10K+', label: 'Happy Customers' },
                 { stat: '50+', label: 'Countries Shipped' },
@@ -148,8 +148,8 @@ const AboutPage: React.FC = () => {
               ].map((item, index) => (
                 <ScrollReveal key={index} delay={index * 0.2} direction="up">
                   <div>
-                    <h3 className="text-2xl font-bold text-blue-400 mb-2">{item.stat}</h3>
-                    <p className="text-gray-300">{item.label}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-blue-400 mb-2">{item.stat}</h3>
+                    <p className="text-sm sm:text-base text-gray-300">{item.label}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -163,34 +163,34 @@ const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Meet the Founders</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Meet the Founders</h2>
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 px-4">
                 The visionaries behind the frost
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
             <ScrollReveal direction="left" delay={0.2}>
-              <div className="text-center">
+              <div className="text-center px-4">
                 <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
                   AJ
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Alex Johnson</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-2">Alex Johnson</h3>
                 <p className="text-blue-400 font-medium mb-4">Co-Founder & Creative Director</p>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                   From the streets of Atlanta, Alex brings the authentic trap aesthetic that defines our brand. 
                   His eye for detail ensures every piece captures the essence of street luxury.
                 </p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" delay={0.4}>
-              <div className="text-center">
+              <div className="text-center px-4">
                 <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-black rounded-full flex items-center justify-center text-white text-3xl font-bold">
                   MR
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Marcus Rivera</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-2">Marcus Rivera</h3>
                 <p className="text-blue-400 font-medium mb-4">Co-Founder & Head of Operations</p>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                   With a background in luxury jewelry craftsmanship, Marcus ensures that every FrostBoyz piece 
                   meets the highest standards of quality and durability.
                 </p>
@@ -204,13 +204,13 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-blue-400 to-blue-600 text-white">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-4">Ready to Join the Movement?</h2>
-            <p className="text-xl mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ready to Join the Movement?</h2>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8">
               Discover jewelry that matches your energy. Built for the streets, worn like luxury.
             </p>
             <a
               href="/shop"
-              className="inline-block bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+              className="inline-block bg-black dark:bg-white text-white dark:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               Shop FrostBoyz
             </a>

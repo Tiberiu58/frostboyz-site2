@@ -29,20 +29,20 @@ const ContactPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Get in Touch</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
             Questions about your order? Need styling advice? Want to collaborate? 
             We're here for the culture. Drop us a line.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Connect With Us</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6 px-4 lg:px-0">Connect With Us</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-6 px-4 lg:px-0">
                 <div className="flex items-start space-x-4">
                   <Mail className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
@@ -106,8 +106,8 @@ const ContactPage: React.FC = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Need Quick Help?</h4>
-              <div className="space-y-2">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 px-4 lg:px-0">Need Quick Help?</h4>
+              <div className="space-y-2 px-4 lg:px-0">
                 <a href="/faq" className="block text-blue-400 hover:text-blue-600 transition-colors">
                   → Check our FAQ
                 </a>
@@ -123,11 +123,11 @@ const ContactPage: React.FC = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 transition-colors duration-300">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sm:p-8 transition-colors duration-300 mx-4 lg:mx-0">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Name *
