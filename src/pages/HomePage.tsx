@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
       )}
 
       {/* Hero Section with Spline iframe background */}
-      <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center text-white overflow-hidden" style={{ backgroundColor: '#020202' }}>
         {/* Hero background video */}
         <video
           autoPlay
