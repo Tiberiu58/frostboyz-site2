@@ -14,7 +14,7 @@ const UserMenu: React.FC = () => {
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center space-x-2 text-gray-900 hover:text-blue-400 transition-colors"
+          className="flex items-center space-x-2 text-black hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300"
         >
           <User className="h-5 w-5" />
           <span className="hidden sm:block font-medium">Account</span>
@@ -61,7 +61,7 @@ const UserMenu: React.FC = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-gray-900 hover:text-blue-400 transition-colors"
+        className="flex items-center space-x-2 text-black hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300"
       >
         <User className="h-5 w-5" />
         <span className="hidden sm:block font-medium">
