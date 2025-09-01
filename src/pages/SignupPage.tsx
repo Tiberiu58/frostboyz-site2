@@ -45,8 +45,10 @@ const SignupPage: React.FC = () => {
       if (error) {
         setMessage({ type: 'error', text: error.message });
       } else {
-        setMessage({ type: 'success', text: 'Account created successfully! You can now sign in.' });
-        setTimeout(() => navigate('/login'), 2000);
+        setMessage({ 
+          type: 'success', 
+          text: 'Account created! Please check your email and click the confirmation link before signing in.' 
+        });
       }
     } catch (error: any) {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });

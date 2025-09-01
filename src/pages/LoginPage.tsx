@@ -9,6 +9,7 @@ const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [needsConfirmation, setNeedsConfirmation] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,13 +24,46 @@ const LoginPage: React.FC = () => {
       });
 
       if (error) {
-        setMessage({ type: 'error', text: error.message });
+        if (error.message === 'Email not confirmed') {
+          setNeedsConfirmation(true);
+          setMessage({ 
+            type: 'error', 
+            text: 'Please check your email and click the confirmation link before signing in.' 
+          });
+        } else {
+          setMessage({ type: 'error', text: error.message });
+        }
       } else {
         setMessage({ type: 'success', text: 'Successfully logged in!' });
         navigate('/');
       }
     } catch (error: any) {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const resendConfirmation = async () => {
+    if (!email) {
+      setMessage({ type: 'error', text: 'Please enter your email address first' });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: email,
+      });
+
+      if (error) {
+        setMessage({ type: 'error', text: error.message });
+      } else {
+        setMessage({ type: 'success', text: 'Confirmation email sent! Check your inbox.' });
+      }
+    } catch (error: any) {
+      setMessage({ type: 'error', text: 'Failed to resend confirmation email' });
     } finally {
       setLoading(false);
     }
@@ -59,6 +93,17 @@ const LoginPage: React.FC = () => {
                 : 'bg-green-50 border border-green-200 text-green-700'
             }`}>
               {message.text}
+              {needsConfirmation && (
+                <div className="mt-3">
+                  <button
+                    onClick={resendConfirmation}
+                    disabled={loading}
+                    className="text-sm text-blue-600 hover:text-blue-800 underline disabled:opacity-50"
+                  >
+                    Resend confirmation email
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
