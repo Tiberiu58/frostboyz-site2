@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
           <img
             src="/20250901_2221_Gold Jewelry Silhouette_remix_01k43bgtrdfyes31p20m8rj6wh.png"
             alt="FrostBoyz Premium Jewelry"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-10"
           />
         </div>
 
