@@ -141,21 +141,27 @@ const ShopPage: React.FC = () => {
               <div>
                 <h4 className="font-medium text-gray-900 mb-3">Material</h4>
                 <div className="space-y-2">
-                  {materials.map(material => (
-                    <label key={material} className="flex items-center">
-                      <input
-                        type="radio"
-                        name="material"
-                        value={material}
-                        checked={filters.material === material}
-                        onChange={(e) => handleFilterChange('material', e.target.value)}
-                        className="text-blue-400 focus:ring-blue-400"
-                      />
-                      <span className="ml-2 text-sm text-gray-700 capitalize">
-                        {material === 'all' ? 'All Materials' : material.replace('-', ' ')}
-                      </span>
-                    </label>
-                  ))}
+                  {materials.map(material => {
+                    const displayName = material === 'all' 
+                      ? 'All Materials' 
+                      : material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel');
+                    
+                    return (
+                      <label key={material} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="material"
+                          value={material}
+                          checked={filters.material === material}
+                          onChange={(e) => handleFilterChange('material', e.target.value)}
+                          className="text-blue-400 focus:ring-blue-400"
+                        />
+                        <span className="ml-2 text-sm text-gray-700 capitalize">
+                          {displayName}
+                        </span>
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
 
