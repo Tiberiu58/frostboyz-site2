@@ -20,7 +20,9 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
+    <header className="sticky top-0 z-50">
+      <div className="mx-4 mt-4">
+        <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -72,7 +74,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200">
+          <div className="md:hidden border-t border-white/20">
             <div className="py-4 space-y-4">
               {navigation.map((item) => (
                 <Link
@@ -90,6 +92,9 @@ const Header: React.FC = () => {
           </div>
         )}
       </nav>
+        </div>
+      </div>
+    </header>
     </header>
   );
 };
