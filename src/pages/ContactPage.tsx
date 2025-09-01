@@ -25,12 +25,12 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get in Touch</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Questions about your order? Need styling advice? Want to collaborate? 
             We're here for the culture. Drop us a line.
           </p>
@@ -40,42 +40,42 @@ const ContactPage: React.FC = () => {
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Connect With Us</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Connect With Us</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <Mail className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Email</h4>
-                    <p className="text-gray-600">frostboyz.jewelry@gmail.com</p>
-                    <p className="text-sm text-gray-500">We respond within 24 hours</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
+                    <p className="text-gray-600 dark:text-gray-300">frostboyz.jewelry@gmail.com</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">We respond within 24 hours</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <Phone className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+40 758848374</p>
-                    <p className="text-sm text-gray-500">Mon-Fri, 9AM-6PM EST</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
+                    <p className="text-gray-600 dark:text-gray-300">+40 758848374</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Mon-Fri, 9AM-6PM EST</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <Clock className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Business Hours</h4>
-                    <p className="text-gray-600">Monday - Friday: 9AM - 6PM EST</p>
-                    <p className="text-gray-600">Weekend: 10AM - 4PM EST</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">Business Hours</h4>
+                    <p className="text-gray-600 dark:text-gray-300">Monday - Friday: 9AM - 6PM EST</p>
+                    <p className="text-gray-600 dark:text-gray-300">Weekend: 10AM - 4PM EST</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <MapPin className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Headquarters</h4>
-                    <p className="text-gray-600">Bucharest, Romania</p>
-                    <p className="text-sm text-gray-500">Where the frost begins</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">Headquarters</h4>
+                    <p className="text-gray-600 dark:text-gray-300">Bucharest, Romania</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Where the frost begins</p>
                   </div>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const ContactPage: React.FC = () => {
 
             {/* Social Media */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Follow the Movement</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Follow the Movement</h4>
               <div className="flex space-x-4">
                 <a 
                   href="https://www.instagram.com/frostboyz.jewelry?igsh=MWE1dDFkazh2dGV1bA==" 
@@ -106,7 +106,7 @@ const ContactPage: React.FC = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Need Quick Help?</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Need Quick Help?</h4>
               <div className="space-y-2">
                 <a href="/faq" className="block text-blue-400 hover:text-blue-600 transition-colors">
                   → Check our FAQ
@@ -123,13 +123,13 @@ const ContactPage: React.FC = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-md p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 transition-colors duration-300">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Name *
                     </label>
                     <input
@@ -139,13 +139,13 @@ const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
@@ -155,14 +155,14 @@ const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Subject *
                   </label>
                   <select
@@ -171,7 +171,7 @@ const ContactPage: React.FC = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   >
                     <option value="">Select a subject</option>
                     <option value="order">Order Question</option>
@@ -184,7 +184,7 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -194,21 +194,21 @@ const ContactPage: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="Tell us what's on your mind..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="w-full bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
                 >
                   Send Message
                 </button>
               </form>
 
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-600">
+              <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   <strong>Response Time:</strong> We typically respond within 24 hours. 
                   For urgent matters, hit us up on Instagram @frostboyz for faster response.
                 </p>

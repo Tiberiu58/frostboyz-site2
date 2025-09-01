@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-gray-900 to-black text-white">
         <div className="absolute inset-0 opacity-20">
@@ -47,13 +47,13 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Our Story</h2>
+                <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   <p>
                     FrostBoyz was born in the heart of the culture – where hip-hop meets high fashion, 
                     where the streets dictate style, and where authenticity isn't just a word, it's a way of life.
@@ -73,7 +73,7 @@ const AboutPage: React.FC = () => {
                   <blockquote className="text-2xl font-bold text-blue-400 italic">
                     "Frost never melts."
                   </blockquote>
-                  <p className="text-gray-600 mt-2">– Our founding principle</p>
+                  <p className="text-gray-600 dark:text-gray-400 mt-2">– Our founding principle</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -106,12 +106,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">What We Stand For</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What We Stand For</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Our values aren't just words on a page – they're the DNA of everything we create.
               </p>
             </div>
@@ -119,10 +119,10 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <ScrollReveal key={index} delay={index * 0.1} direction="up">
-                <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md text-center hover:shadow-xl transition-all duration-300">
                   <value.icon className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{value.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -149,7 +149,7 @@ const AboutPage: React.FC = () => {
                 <ScrollReveal key={index} delay={index * 0.2} direction="up">
                   <div>
                     <h3 className="text-2xl font-bold text-blue-400 mb-2">{item.stat}</h3>
-                    <p className="text-gray-400">{item.label}</p>
+                    <p className="text-gray-300">{item.label}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -159,12 +159,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet the Founders</h2>
-              <p className="text-xl text-gray-600">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Meet the Founders</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">
                 The visionaries behind the frost
               </p>
             </div>
@@ -177,7 +177,7 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">Alex Johnson</h3>
                 <p className="text-blue-400 font-medium mb-4">Co-Founder & Creative Director</p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   From the streets of Atlanta, Alex brings the authentic trap aesthetic that defines our brand. 
                   His eye for detail ensures every piece captures the essence of street luxury.
                 </p>
@@ -190,7 +190,7 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">Marcus Rivera</h3>
                 <p className="text-blue-400 font-medium mb-4">Co-Founder & Head of Operations</p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   With a background in luxury jewelry craftsmanship, Marcus ensures that every FrostBoyz piece 
                   meets the highest standards of quality and durability.
                 </p>
@@ -210,7 +210,7 @@ const AboutPage: React.FC = () => {
             </p>
             <a
               href="/shop"
-              className="inline-block bg-black text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors"
+              className="inline-block bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               Shop FrostBoyz
             </a>

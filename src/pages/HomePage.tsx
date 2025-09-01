@@ -42,32 +42,32 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dark:bg-gray-900 transition-colors duration-300">
       {/* Newsletter Popup */}
       {showNewsletter && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full relative">
             <button
               onClick={handleNewsletterClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
             >
               ✕
             </button>
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2">Join the Frost Fam</h3>
-              <p className="text-gray-600 mb-6">Get 10% off your first order + exclusive drops</p>
+              <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Join the Frost Fam</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">Get 10% off your first order + exclusive drops</p>
               <form onSubmit={handleNewsletterSubmit}>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none"
+                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg mb-4 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
                 >
                   Claim 10% Off
                 </button>
@@ -131,12 +131,12 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Featured Collections */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Collections</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Collections</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Icy look. Zero melt. Discover our most coveted pieces.
               </p>
             </div>
@@ -152,7 +152,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <Link
                 to="/shop"
-                className="inline-flex items-center border-2 border-black text-black px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-all duration-300"
+                className="inline-flex items-center border-2 border-black dark:border-white text-black dark:text-white px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
               >
                 View All Products
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -163,25 +163,25 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">What The Fam Says</h2>
-              <p className="text-xl text-gray-600">Real talk from real customers</p>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">What The Fam Says</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">Real talk from real customers</p>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 0.2} direction="up">
-                <div className="bg-white p-8 rounded-lg shadow-md text-center">
+                <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md text-center transition-colors duration-300">
                   <div className="flex justify-center mb-4">
                     {[...Array(t.rating)].map((_, j) => (
                       <Star key={j} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-lg text-gray-800 mb-4 italic">"{t.text}"</p>
-                  <p className="font-semibold text-gray-900">– {t.name}</p>
+                  <p className="text-lg text-gray-800 dark:text-gray-200 mb-4 italic">"{t.text}"</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">– {t.name}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -195,7 +195,7 @@ const HomePage: React.FC = () => {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">Built Different</h2>
-              <p className="text-xl text-gray-400">Where street culture meets premium craftsmanship</p>
+              <p className="text-xl text-gray-300">Where street culture meets premium craftsmanship</p>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
                 <div className="text-center">
                   <item.icon className="h-12 w-12 text-blue-400 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
+                  <p className="text-gray-300">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -225,7 +225,7 @@ const HomePage: React.FC = () => {
             <p className="text-xl mb-8">Join the movement. Elevate your game.</p>
             <Link
               to="/shop"
-              className="inline-flex items-center bg-black text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               Start Your Collection
               <ArrowRight className="ml-2 h-5 w-5" />

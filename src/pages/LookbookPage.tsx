@@ -85,7 +85,7 @@ const LookbookPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-gray-900 to-black text-white">
         <div className="absolute inset-0 opacity-20">
@@ -107,12 +107,12 @@ const LookbookPage: React.FC = () => {
       </section>
 
       {/* Main Lookbook Gallery */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Lifestyle Gallery</h2>
-              <p className="text-xl text-gray-600">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Lifestyle Gallery</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">
                 Real pieces. Real style. Real attitude.
               </p>
             </div>
@@ -136,8 +136,8 @@ const LookbookPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-gray-600 text-sm capitalize">{item.category}</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm capitalize">{item.category}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -147,14 +147,14 @@ const LookbookPage: React.FC = () => {
       </section>
 
       {/* Social Media Integration */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Follow the Movement
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
                 See what the Frost Fam is saying on social
               </p>
               <div className="flex justify-center space-x-4">
@@ -183,7 +183,7 @@ const LookbookPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {socialPosts.map((post) => (
               <ScrollReveal key={post.id} delay={post.id * 0.1} direction="up">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="relative aspect-square">
                     <img
                       src={post.image}
@@ -203,14 +203,14 @@ const LookbookPage: React.FC = () => {
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold mr-2">
                         FB
                       </div>
-                      <span className="font-semibold text-gray-900 text-sm">{post.username}</span>
+                      <span className="font-semibold text-gray-900 dark:text-white text-sm">{post.username}</span>
                     </div>
-                    <p className="text-gray-700 text-sm mb-2">{post.caption}</p>
-                    <div className="flex items-center text-gray-500 text-sm">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">{post.caption}</p>
+                    <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
                       <button className="mr-4 hover:text-red-500 transition-colors">
                         ♥ {post.likes}
                       </button>
-                      <button className="hover:text-gray-700 transition-colors">
+                      <button className="hover:text-gray-700 dark:hover:text-gray-200 transition-colors">
                         💬 Reply
                       </button>
                     </div>
@@ -238,9 +238,9 @@ const LookbookPage: React.FC = () => {
                 { title: 'Street Style', desc: 'Spotted in streetwear blogs and urban fashion magazines' },
               ].map((item, index) => (
                 <ScrollReveal key={index} delay={index * 0.2} direction="up">
-                  <div className="p-6 border border-gray-800 rounded-lg">
+                  <div className="p-6 border border-gray-800 dark:border-gray-600 rounded-lg">
                     <h3 className="font-bold text-xl mb-3">{item.title}</h3>
-                    <p className="text-gray-400">{item.desc}</p>
+                    <p className="text-gray-300">{item.desc}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -260,7 +260,7 @@ const LookbookPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/shop"
-                className="inline-block bg-black text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors"
+                className="inline-block bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
                 Shop the Looks
               </a>

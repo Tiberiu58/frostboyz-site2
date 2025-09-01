@@ -27,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+    <div className="group relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
       <Link to={`/product/${product.id}`}>
         <div className="aspect-square overflow-hidden bg-gray-100">
           <img
@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={`p-2 rounded-full shadow-md transition-colors ${
             isInWishlist(product.id)
               ? 'bg-red-500 text-white'
-              : 'bg-white text-gray-600 hover:text-red-500'
+              : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:text-red-500'
           }`}
         >
           <Heart className="h-4 w-4" />
@@ -63,7 +63,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="p-2 bg-black text-white rounded-full shadow-md hover:bg-gray-800 transition-colors"
+            className="p-2 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
           >
             <ShoppingBag className="h-4 w-4" />
           </button>
@@ -73,17 +73,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Info */}
       <div className="p-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-400 transition-colors">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-400 transition-colors">
             {product.name}
           </h3>
         </Link>
         <div className="flex items-center space-x-2">
-          <span className="text-lg font-bold text-gray-900">RON {product.price}</span>
+          <span className="text-lg font-bold text-gray-900 dark:text-white">RON {product.price}</span>
           {product.originalPrice && (
-            <span className="text-sm text-gray-500 line-through">RON {product.originalPrice}</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400 line-through">RON {product.originalPrice}</span>
           )}
         </div>
-        <p className="text-sm text-gray-600 mt-1 capitalize">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 capitalize">
           {product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
           {product.color && ` • ${product.color}`}
         </p>

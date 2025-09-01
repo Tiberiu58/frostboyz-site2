@@ -82,12 +82,12 @@ const ShopPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Shop the Frost</h1>
-          <p className="text-xl text-gray-600">Discover your perfect piece of ice</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Shop the Frost</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Discover your perfect piece of ice</p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
@@ -95,7 +95,7 @@ const ShopPage: React.FC = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg border border-gray-200"
+              className="flex items-center space-x-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white transition-colors duration-300"
             >
               <Filter className="h-4 w-4" />
               <span>Filters</span>
@@ -103,9 +103,9 @@ const ShopPage: React.FC = () => {
           </div>
 
           {/* Filters Sidebar */}
-          <div className={`lg:block ${showFilters ? 'block' : 'hidden'} lg:w-64 bg-white rounded-lg p-6 h-fit`}>
+          <div className={`lg:block ${showFilters ? 'block' : 'hidden'} lg:w-64 bg-white dark:bg-gray-800 rounded-lg p-6 h-fit transition-colors duration-300`}>
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-semibold">Filters</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Filters</h3>
               <button
                 onClick={clearFilters}
                 className="text-blue-400 hover:text-blue-600 text-sm font-medium"
@@ -117,7 +117,7 @@ const ShopPage: React.FC = () => {
             <div className="space-y-6">
               {/* Category */}
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Category</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-3">Category</h4>
                 <div className="space-y-2">
                   {categories.map(category => (
                     <label key={category} className="flex items-center">
@@ -129,7 +129,7 @@ const ShopPage: React.FC = () => {
                         onChange={(e) => handleFilterChange('category', e.target.value)}
                         className="text-blue-400 focus:ring-blue-400"
                       />
-                      <span className="ml-2 text-sm text-gray-700 capitalize">
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300 capitalize">
                         {category === 'all' ? 'All Categories' : category}
                       </span>
                     </label>
@@ -139,7 +139,7 @@ const ShopPage: React.FC = () => {
 
               {/* Material */}
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Material</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-3">Material</h4>
                 <div className="space-y-2">
                   {materials.map(material => {
                     const displayName = material === 'all' 
@@ -156,7 +156,7 @@ const ShopPage: React.FC = () => {
                           onChange={(e) => handleFilterChange('material', e.target.value)}
                           className="text-blue-400 focus:ring-blue-400"
                         />
-                        <span className="ml-2 text-sm text-gray-700 capitalize">
+                        <span className="ml-2 text-sm text-gray-700 dark:text-gray-300 capitalize">
                           {displayName}
                         </span>
                       </label>
@@ -167,7 +167,7 @@ const ShopPage: React.FC = () => {
 
               {/* Color */}
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Color</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-3">Color</h4>
                 <div className="space-y-2">
                   {colors.map(color => (
                     <label key={color} className="flex items-center">
@@ -179,7 +179,7 @@ const ShopPage: React.FC = () => {
                         onChange={(e) => handleFilterChange('color', e.target.value)}
                         className="text-blue-400 focus:ring-blue-400"
                       />
-                      <span className="ml-2 text-sm text-gray-700 capitalize">
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300 capitalize">
                         {color === 'all' ? 'All Colors' : color}
                       </span>
                     </label>
@@ -189,7 +189,7 @@ const ShopPage: React.FC = () => {
 
               {/* Price Range */}
               <div>
-                <h4 className="font-medium text-gray-900 mb-3">Price</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-3">Price</h4>
                 <div className="space-y-2">
                   {priceRanges.map(range => (
                     <label key={range.value} className="flex items-center">
@@ -201,7 +201,7 @@ const ShopPage: React.FC = () => {
                         onChange={(e) => handleFilterChange('priceRange', e.target.value)}
                         className="text-blue-400 focus:ring-blue-400"
                       />
-                      <span className="ml-2 text-sm text-gray-700">
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                         {range.label}
                       </span>
                     </label>
@@ -214,7 +214,7 @@ const ShopPage: React.FC = () => {
           {/* Products Grid */}
           <div className="flex-1">
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 Showing {filteredProducts.length} of {products.length} products
               </p>
             </div>
@@ -227,7 +227,7 @@ const ShopPage: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg mb-4">No products found with current filters</p>
+                <p className="text-gray-500 dark:text-gray-400 text-lg mb-4">No products found with current filters</p>
                 <button
                   onClick={clearFilters}
                   className="text-blue-400 hover:text-blue-600 font-medium"

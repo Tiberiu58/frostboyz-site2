@@ -53,12 +53,12 @@ const ProductPage: React.FC = () => {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center text-gray-600 hover:text-gray-900 mb-8 transition-colors"
+          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
@@ -98,31 +98,31 @@ const ProductPage: React.FC = () => {
           {/* Product Info */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{product.name}</h1>
               <div className="flex items-center space-x-3">
-                <span className="text-2xl font-bold text-gray-900">RON {product.price}</span>
+                <span className="text-2xl font-bold text-gray-900 dark:text-white">RON {product.price}</span>
                 {product.originalPrice && (
-                  <span className="text-lg text-gray-500 line-through">RON {product.originalPrice}</span>
+                  <span className="text-lg text-gray-500 dark:text-gray-400 line-through">RON {product.originalPrice}</span>
                 )}
               </div>
             </div>
 
-            <div className="prose text-gray-700">
+            <div className="prose text-gray-700 dark:text-gray-300">
               <p>{product.description}</p>
             </div>
 
             {/* Product Details */}
             <div className="space-y-4">
-              <div className="flex items-center space-x-4 text-sm text-gray-600">
-                <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
+              <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300">
+                <span className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full capitalize">
                   {product.material.replace('-', ' ').replace('plated stainless steel', 'Plated with Stainless Steel')}
                 </span>
                 {product.color && (
-                  <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
+                  <span className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full capitalize">
                     {product.color}
                   </span>
                 )}
-                <span className="bg-gray-100 px-3 py-1 rounded-full capitalize">
+                <span className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full capitalize">
                   {product.style.replace('-', ' ')}
                 </span>
               </div>
@@ -130,10 +130,10 @@ const ProductPage: React.FC = () => {
 
             {/* Features */}
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Features</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Features</h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
+                  <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
                     <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
                     {feature}
                   </li>
@@ -144,7 +144,7 @@ const ProductPage: React.FC = () => {
             {/* Trust Badges */}
             <div className="grid grid-cols-2 gap-4">
               {trustBadges.map((badge, index) => (
-                <div key={index} className="flex items-center space-x-2 text-sm text-gray-700">
+                <div key={index} className="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300">
                   <badge.icon className="h-4 w-4 text-blue-400" />
                   <span>{badge.text}</span>
                 </div>
@@ -165,7 +165,7 @@ const ProductPage: React.FC = () => {
                 ) : (
                   <button
                     onClick={handleAddToCart}
-                    className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center"
+                    className="flex-1 bg-black dark:bg-white text-white dark:text-black py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center"
                   >
                     <ShoppingBag className="h-5 w-5 mr-2" />
                     Add to Cart
@@ -175,8 +175,8 @@ const ProductPage: React.FC = () => {
                   onClick={handleToggleWishlist}
                   className={`p-3 rounded-lg border-2 transition-colors ${
                     isInWishlist(product.id)
-                      ? 'bg-red-50 border-red-200 text-red-600'
-                      : 'border-gray-300 text-gray-600 hover:border-red-300 hover:text-red-600'
+                      ? 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400'
+                      : 'border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-red-300 hover:text-red-600'
                   }`}
                 >
                   <Heart className="h-5 w-5" />
@@ -185,12 +185,12 @@ const ProductPage: React.FC = () => {
             </div>
 
             {/* Shipping Info */}
-            <div className="border-t pt-6 text-sm text-gray-600">
+            <div className="border-t border-gray-200 dark:border-gray-600 pt-6 text-sm text-gray-600 dark:text-gray-300">
               <p className="mb-2">
                 <strong>Free worldwide shipping</strong> on orders over RON 150
               </p>
               <p className="mb-2">Estimated delivery: 7-15 business days</p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 Secure payment powered by Stripe • 14-day return policy
               </p>
             </div>
@@ -200,7 +200,7 @@ const ProductPage: React.FC = () => {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className="mt-20">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">You Might Also Like</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">You Might Also Like</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedProducts.map(product => (
                 <div key={product.id} className="group cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
@@ -211,8 +211,8 @@ const ProductPage: React.FC = () => {
                       className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{product.name}</h3>
-                  <p className="text-lg font-bold text-gray-900">RON {product.price}</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{product.name}</h3>
+                  <p className="text-lg font-bold text-gray-900 dark:text-white">RON {product.price}</p>
                 </div>
               ))}
             </div>

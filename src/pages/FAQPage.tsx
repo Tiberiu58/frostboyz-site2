@@ -109,12 +109,12 @@ const FAQPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Got questions? We got answers. Everything you need to know about FrostBoyz.
           </p>
         </div>
@@ -122,33 +122,33 @@ const FAQPage: React.FC = () => {
         {/* FAQ Categories */}
         <div className="space-y-8">
           {faqs.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="bg-gray-900 text-white px-6 py-4">
+            <div key={categoryIndex} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+              <div className="bg-gray-900 dark:bg-gray-700 text-white px-6 py-4">
                 <h2 className="text-xl font-semibold">{category.category}</h2>
               </div>
               
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-gray-200 dark:divide-gray-600">
                 {category.items.map((item, itemIndex) => {
                   const globalIndex = categoryIndex * 100 + itemIndex;
                   const isOpen = openItems.includes(globalIndex);
                   
                   return (
-                    <div key={itemIndex} className="border-b border-gray-200 last:border-b-0">
+                    <div key={itemIndex} className="border-b border-gray-200 dark:border-gray-600 last:border-b-0">
                       <button
                         onClick={() => toggleItem(globalIndex)}
-                        className="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors flex justify-between items-center"
+                        className="w-full px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex justify-between items-center"
                       >
-                        <span className="font-medium text-gray-900 pr-4">{item.question}</span>
+                        <span className="font-medium text-gray-900 dark:text-white pr-4">{item.question}</span>
                         {isOpen ? (
-                          <ChevronUp className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                          <ChevronUp className="h-5 w-5 text-gray-400 dark:text-gray-300 flex-shrink-0" />
                         ) : (
-                          <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                          <ChevronDown className="h-5 w-5 text-gray-400 dark:text-gray-300 flex-shrink-0" />
                         )}
                       </button>
                       
                       {isOpen && (
                         <div className="px-6 pb-4">
-                          <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{item.answer}</p>
                         </div>
                       )}
                     </div>
