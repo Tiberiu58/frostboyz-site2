@@ -24,7 +24,7 @@ const LoginPage: React.FC = () => {
       });
 
       if (error) {
-        if (error.message === 'Email not confirmed') {
+        if (error.message?.includes('Email not confirmed')) {
           setNeedsConfirmation(true);
           setMessage({ 
             type: 'error', 
