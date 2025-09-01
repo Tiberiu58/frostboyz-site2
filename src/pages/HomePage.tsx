@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
         {/* Full-bleed background */}
         <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
           <iframe
-            src="https://my.spline.design/theorbhand-QKztozQ4G3n1OjMoDR1IgtUX/"
+            src="https://my.spline.design/untitled-b0b8b8b8b8b8b8b8/"
             title="FrostBoyz Spline"
             className="w-full h-full border-0"
             loading="eager"
