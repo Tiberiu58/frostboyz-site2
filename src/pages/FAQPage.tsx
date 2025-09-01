@@ -173,7 +173,7 @@ const FAQPage: React.FC = () => {
               Contact Support
             </a>
             <a
-              href="mailto:support@frostboyz.com"
+              href="mailto:frostboyz.jewelry@gmail.com"
               className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
             >
               Email Us

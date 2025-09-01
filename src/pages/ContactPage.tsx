@@ -46,7 +46,7 @@ const ContactPage: React.FC = () => {
                   <Mail className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Email</h4>
-                    <p className="text-gray-600">support@frostboyz.com</p>
+                    <p className="text-gray-600">frostboyz.jewelry@gmail.com</p>
                     <p className="text-sm text-gray-500">We respond within 24 hours</p>
                   </div>
                 </div>
@@ -55,7 +55,7 @@ const ContactPage: React.FC = () => {
                   <Phone className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-FROST</p>
+                    <p className="text-gray-600">+40 758848374</p>
                     <p className="text-sm text-gray-500">Mon-Fri, 9AM-6PM EST</p>
                   </div>
                 </div>
@@ -73,8 +73,8 @@ const ContactPage: React.FC = () => {
                   <MapPin className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Headquarters</h4>
-                    <p className="text-gray-600">Atlanta, GA</p>
-                    <p className="text-sm text-gray-500">Where the culture lives</p>
+                    <p className="text-gray-600">Bucharest, Romania</p>
+                    <p className="text-sm text-gray-500">Where the frost begins</p>
                   </div>
                 </div>
               </div>

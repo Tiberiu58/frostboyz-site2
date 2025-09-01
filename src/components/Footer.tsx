@@ -38,11 +38,11 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="space-y-3">
               <a 
-                href="mailto:support@frostboyz.com" 
+                href="mailto:frostboyz.jewelry@gmail.com" 
                 className="flex items-center text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4 mr-2" />
-                support@frostboyz.com
+                frostboyz.jewelry@gmail.com
               </a>
               <div className="flex space-x-4 pt-2">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">

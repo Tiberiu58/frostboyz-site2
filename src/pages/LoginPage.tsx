@@ -70,14 +70,14 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8 px-6 sm:px-8 lg:px-8">
+      <div className="max-w-md w-full space-y-10">
         <div className="text-center">
           <Link to="/" className="text-3xl font-bold text-black tracking-tight">
             FrostBoyz<span className="text-blue-400">.</span>
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">Welcome back</h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <h2 className="mt-8 text-3xl font-bold text-gray-900">Welcome back</h2>
+          <p className="mt-4 text-sm text-gray-600">
             Don't have an account?{' '}
             <Link to="/signup" className="font-medium text-blue-400 hover:text-blue-500">
               Sign up
@@ -85,16 +85,16 @@ const LoginPage: React.FC = () => {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
           {message && (
-            <div className={`p-4 rounded-lg ${
+            <div className={`p-5 rounded-lg ${
               message.type === 'error' 
                 ? 'bg-red-50 border border-red-200 text-red-700' 
                 : 'bg-green-50 border border-green-200 text-green-700'
             }`}>
               {message.text}
               {needsConfirmation && (
-                <div className="mt-3">
+                <div className="mt-4">
                   <button
                     onClick={resendConfirmation}
                     disabled={loading}
@@ -107,9 +107,9 @@ const LoginPage: React.FC = () => {
             </div>
           )}
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-3">
                 Email address
               </label>
               <div className="relative">
@@ -124,14 +124,14 @@ const LoginPage: React.FC = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors"
+                  className="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors text-base"
                   placeholder="Enter your email"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-3">
                 Password
               </label>
               <div className="relative">
@@ -146,7 +146,7 @@ const LoginPage: React.FC = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors"
+                  className="block w-full pl-10 pr-10 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none transition-colors text-base"
                   placeholder="Enter your password"
                 />
                 <button
@@ -164,7 +164,7 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-6">
             <div className="text-sm">
               <Link to="/forgot-password" className="font-medium text-blue-400 hover:text-blue-500">
                 Forgot your password?
@@ -175,7 +175,7 @@ const LoginPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-base font-medium rounded-lg text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
