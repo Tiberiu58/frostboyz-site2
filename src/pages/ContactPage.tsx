@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Instagram, Music, MapPin, Phone, Clock } from 'lucide-react';
+import { Mail, Instagram, MapPin, Phone, Clock } from 'lucide-react';
+import TikTokIcon from '../components/TikTokIcon';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -98,7 +99,7 @@ const ContactPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition-colors"
                 >
-                  <Music className="h-5 w-5" />
+                  <TikTokIcon className="h-5 w-5" />
                 </a>
               </div>
             </div>

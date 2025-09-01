@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Music, Mail } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
+import TikTokIcon from './TikTokIcon';
 
 const Footer: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ const Footer: React.FC = () => {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a href="https://www.tiktok.com/@frostboyzromania?_t=ZN-8zN3Ly3wF54&_r=1" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  <Music className="h-5 w-5" />
+                  <TikTokIcon className="h-5 w-5" />
                 </a>
               </div>
             </div>

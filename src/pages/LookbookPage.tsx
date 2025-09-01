@@ -1,5 +1,6 @@
 import React from 'react';
-import { Instagram, Play } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import TikTokIcon from '../components/TikTokIcon';
 import ScrollReveal from '../components/ScrollReveal';
 
 const LookbookPage: React.FC = () => {
@@ -172,7 +173,7 @@ const LookbookPage: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                 >
-                  <Play className="h-5 w-5 mr-2" />
+                  <TikTokIcon className="h-5 w-5 mr-2" />
                   @frostboyzromania
                 </a>
               </div>
