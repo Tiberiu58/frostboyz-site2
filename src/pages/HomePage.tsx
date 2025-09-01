@@ -105,6 +105,8 @@ const HomePage: React.FC = () => {
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
+      </section>
+
       {/* Featured Collections */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
