@@ -22,11 +22,11 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50">
       <div className="mx-4 mt-4">
-        <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
+        <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-black tracking-tight">
+          <Link to="/" className="text-2xl font-bold text-black tracking-tight transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
             FrostBoyz<span className="text-blue-400">.</span>
           </Link>
 
@@ -36,9 +36,9 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium text-sm tracking-wide transition-colors hover:text-blue-400 ${
+                className={`block font-medium text-sm tracking-wide transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] ${
                   isActive(item.href) 
-                    ? 'text-blue-400 border-b-2 border-blue-400 pb-1' 
+                    ? 'text-blue-400 border-b-2 border-blue-400 pb-1 drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]' 
                     : 'text-gray-900'
                 }`}
               >
@@ -50,13 +50,13 @@ const Header: React.FC = () => {
           {/* Cart & Wishlist */}
           <div className="flex items-center space-x-4">
             <UserMenu />
-            <Link to="/wishlist" className="text-gray-900 hover:text-blue-400 transition-colors">
+            <Link to="/wishlist" className="text-gray-900 hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300">
               <Heart className="h-5 w-5" />
             </Link>
-            <Link to="/cart" className="relative text-gray-900 hover:text-blue-400 transition-colors">
+            <Link to="/cart" className="relative text-gray-900 hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300">
               <ShoppingBag className="h-5 w-5" />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-400 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                <span className="absolute -top-2 -right-2 bg-blue-400 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium shadow-lg">
                   {cartCount}
                 </span>
               )}
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-900 hover:text-blue-400 transition-colors"
+              className="md:hidden text-gray-900 hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
