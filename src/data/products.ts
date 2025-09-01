@@ -9,7 +9,6 @@ export const products: Product[] = [
     image: '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
     images: [
       '/WhatsApp Image 2025-09-01 at 19.11.30.jpeg',
-      'https://images.pexels.com/photos/6669856/pexels-photo-6669856.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
     category: 'chains',
     material: 'stainless-steel',
