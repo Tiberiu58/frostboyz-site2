@@ -23,6 +23,8 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ProfilePage from './pages/ProfilePage';
 import InsightPage from './pages/InsightPage';
 import WishlistPage from './pages/WishlistPage';
+import TermeniConditiiPage from './pages/TermeniConditiiPage';
+import PoliticaConfidentialitateePage from './pages/PoliticaConfidentialitateePage';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
                 <Route path="/profile" element={<AuthGuard><ProfilePage /></AuthGuard>} />
                 <Route path="/insights/:id" element={<InsightPage />} />
                 <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/termeni-conditii" element={<TermeniConditiiPage />} />
+                <Route path="/politica-confidentialitate" element={<PoliticaConfidentialitateePage />} />
               </Routes>
             </main>
             <Footer />

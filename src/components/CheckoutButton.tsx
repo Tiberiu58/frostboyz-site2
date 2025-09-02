@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ShoppingBag, Loader2, CreditCard } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
@@ -86,6 +87,20 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({
         {loading ? 'Processing...' : (children || 'Buy Now')}
       </button>
       
+      {/* Romanian Legal Links */}
+      <div className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
+        <p>
+          Prin continuare, sunteți de acord cu{' '}
+          <Link to="/termeni-conditii" className="text-blue-400 hover:text-blue-600 underline">
+            Termenii și Condițiile
+          </Link>
+          {' '}și{' '}
+          <Link to="/politica-confidentialitate" className="text-blue-400 hover:text-blue-600 underline">
+            Politica de Confidențialitate
+          </Link>
+        </p>
+      </div>
+
       {error && (
         <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-sm text-red-700">{error}</p>
