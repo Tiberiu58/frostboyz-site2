@@ -79,30 +79,33 @@ const HomePage: React.FC = () => {
 
       {/* Hero Section with Spline iframe background */}
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden" style={{ backgroundColor: '#020202' }}>
-        {/* Hero background image */}
-        <div className="absolute inset-0 z-0">
+        {/* Hero background image - optimized for mobile */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 to-black">
           <img
             src="/20250901_2230_Silver Jewelry Set_remix_01k43c0skhfre96qrsb43v5af3.png"
             alt="FrostBoyz Premium Jewelry"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover object-center opacity-10 sm:opacity-15 md:opacity-20"
+            loading="eager"
           />
+          {/* Mobile gradient overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60 sm:from-black/60 sm:via-black/20 sm:to-black/40"></div>
         </div>
 
-        {/* Foreground content */}
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        {/* Foreground content - optimized spacing for mobile */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-bold mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 tracking-tight"
           >
-            <span className="font-black tracking-wider text-shadow-lg uppercase text-4xl sm:text-6xl md:text-8xl">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
+            <span className="font-black tracking-wider text-shadow-lg uppercase drop-shadow-2xl">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 font-medium tracking-wide px-4"
+            className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 font-medium tracking-wide px-2 sm:px-4 drop-shadow-lg"
           >
             Frost never melts.
           </motion.p>
@@ -110,7 +113,7 @@ const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-gray-300 max-w-2xl mx-auto px-4"
+            className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-12 text-gray-200 max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed drop-shadow-md"
           >
             Born from urban culture. Trap-inspired, icy, bold. Built for the streets, worn like luxury.
           </motion.p>
@@ -118,10 +121,11 @@ const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
+            className="px-2 sm:px-4"
           >
             <Link
               to="/shop"
-              className="inline-flex items-center bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group"
+              className="inline-flex items-center bg-white text-black px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base md:text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group shadow-xl"
             >
               Shop the Frost
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

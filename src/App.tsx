@@ -22,6 +22,7 @@ import EmailConfirmationPage from './pages/EmailConfirmationPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ProfilePage from './pages/ProfilePage';
 import InsightPage from './pages/InsightPage';
+import WishlistPage from './pages/WishlistPage';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/privacy" element={<PrivacyPolicyPage />} />
                 <Route path="/profile" element={<AuthGuard><ProfilePage /></AuthGuard>} />
                 <Route path="/insights/:id" element={<InsightPage />} />
+                <Route path="/wishlist" element={<WishlistPage />} />
               </Routes>
             </main>
             <Footer />
