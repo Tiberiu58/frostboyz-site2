@@ -88,18 +88,6 @@ const InsightPage: React.FC = () => {
         },
         {
           type: 'heading',
-          text: 'Deep Cleaning',
-        },
-        {
-          type: 'paragraph',
-          text: 'Once a week, show your ice some love. Warm water, mild soap, soft toothbrush for the detailed areas. For our stainless steel pieces, this routine will keep them looking brand new.',
-        },
-        {
-          type: 'paragraph',
-          text: 'Avoid harsh chemicals – no bleach, no ammonia, no jewelry cleaners with unknown ingredients. Our pieces are tough, but why risk it? Gentle cleaning works better anyway.',
-        },
-        {
-          type: 'heading',
           text: 'What to Avoid',
         },
         {
