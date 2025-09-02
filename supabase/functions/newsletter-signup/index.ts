@@ -46,10 +46,14 @@ Deno.serve(async (req) => {
     const authHeader = req.headers.get('Authorization');
     let userId = null;
     
-    if (authHeader) {
-      const token = authHeader.replace('Bearer ', '');
-      const { data: { user } } = await supabase.auth.getUser(token);
-      userId = user?.id || null;
+    if (authHeader && authHeader !== 'Bearer ') {
+      try {
+        const token = authHeader.replace('Bearer ', '');
+        const { data: { user } } = await supabase.auth.getUser(token);
+        userId = user?.id || null;
+      } catch (error) {
+        console.log('No valid user session, proceeding without user ID');
+      }
     }
 
     // Check if email already exists

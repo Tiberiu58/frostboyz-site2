@@ -28,15 +28,14 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     setError(null);
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/newsletter-signup`;
+      const apiUrl = 'https://ywifssqfgkcogibrdoil.supabase.co/functions/v1/newsletter-signup';
       
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
-          'Authorization': session ? `Bearer ${session.access_token}` : '',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
         },
         body: JSON.stringify({
           email,
