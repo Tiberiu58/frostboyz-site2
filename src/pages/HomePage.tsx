@@ -6,20 +6,22 @@ import { useAuth } from '../hooks/useAuth';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import ScrollReveal from '../components/ScrollReveal';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 const HomePage: React.FC = () => {
   const { user } = useAuth();
-  const [email, setEmail] = useState('');
   const [showNewsletter, setShowNewsletter] = useState(false);
-  const [hasSubmittedNewsletter, setHasSubmittedNewsletter] = useState(false);
 
   useEffect(() => {
-    // Only show newsletter popup if user is logged in and hasn't submitted email yet
-    if (user && !hasSubmittedNewsletter) {
-      const timer = setTimeout(() => setShowNewsletter(true), 3000);
+    // Check if user has already subscribed to newsletter
+    const hasSubscribed = localStorage.getItem('frostboyz-newsletter-subscribed');
+    
+    // Show newsletter popup after 5 seconds if not subscribed
+    if (!hasSubscribed) {
+      const timer = setTimeout(() => setShowNewsletter(true), 5000);
       return () => clearTimeout(timer);
     }
-  }, [user, hasSubmittedNewsletter]);
+  }, []);
 
   const featuredProducts = products.slice(0, 3);
 
@@ -29,16 +31,16 @@ const HomePage: React.FC = () => {
     { text: 'Finally found jewelry that matches my vibe. FrostBoyz gets it.', rating: 5 },
   ];
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowNewsletter(false);
-    setHasSubmittedNewsletter(true);
-    setEmail('');
-  };
-
   const handleNewsletterClose = () => {
     setShowNewsletter(false);
-    // Don't set hasSubmittedNewsletter to true, so it can show again
+    // Mark as seen so it doesn't show again this session
+    localStorage.setItem('frostboyz-newsletter-seen', 'true');
+  };
+
+  const handleNewsletterSuccess = () => {
+    setShowNewsletter(false);
+    // Mark as subscribed so it doesn't show again
+    localStorage.setItem('frostboyz-newsletter-subscribed', 'true');
   };
 
   return (
@@ -46,33 +48,12 @@ const HomePage: React.FC = () => {
       {/* Newsletter Popup */}
       {showNewsletter && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full relative">
-            <button
-              onClick={handleNewsletterClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
-            >
-              ✕
-            </button>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Join the Frost Fam</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">Get 10% off your first order + exclusive drops</p>
-              <form onSubmit={handleNewsletterSubmit}>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg mb-4 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  Claim 10% Off
-                </button>
-              </form>
-            </div>
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full relative transition-colors duration-300">
+            <NewsletterSignup 
+              onClose={handleNewsletterClose}
+              source="homepage-popup"
+              showAsModal={true}
+            />
           </div>
         </div>
       )}

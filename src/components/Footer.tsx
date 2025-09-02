@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Mail } from 'lucide-react';
 import TikTokIcon from './TikTokIcon';
+import NewsletterSignup from './NewsletterSignup';
 
 const Footer: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="md:col-span-2 lg:col-span-1">
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="space-y-3">
               <a 
@@ -54,6 +55,14 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
+          </div>
+
+          {/* Newsletter Signup */}
+          <div className="md:col-span-2 lg:col-span-1">
+            <NewsletterSignup 
+              source="footer"
+              className="bg-gray-900 dark:bg-gray-800 p-6 rounded-lg border border-gray-700"
+            />
           </div>
         </div>
 
