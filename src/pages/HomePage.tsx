@@ -24,9 +24,9 @@ const HomePage: React.FC = () => {
   const featuredProducts = products.slice(0, 3);
 
   const testimonials = [
-    { name: 'Marcus J.', text: 'This chain hit different. Pure ice, no cap.', rating: 5 },
-    { name: 'Zoe M.', text: 'Quality is unmatched. Been wearing daily for months.', rating: 5 },
-    { name: 'Tyler K.', text: 'Finally found jewelry that matches my vibe. FrostBoyz gets it.', rating: 5 },
+    { text: 'This chain hit different. Pure ice, no cap.', rating: 5 },
+    { text: 'Quality is unmatched. Been wearing daily for months.', rating: 5 },
+    { text: 'Finally found jewelry that matches my vibe. FrostBoyz gets it.', rating: 5 },
   ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -181,7 +181,6 @@ const HomePage: React.FC = () => {
                     ))}
                   </div>
                   <p className="text-base sm:text-lg text-gray-800 dark:text-gray-200 mb-4 italic">"{t.text}"</p>
-                  <p className="font-semibold text-gray-900 dark:text-white">– {t.name}</p>
                 </div>
               </ScrollReveal>
             ))}
