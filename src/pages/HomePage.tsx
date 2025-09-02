@@ -216,6 +216,69 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Jewelry Insights */}
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Jewelry Insights</h2>
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
+                Level up your game with insider knowledge from the streets
+              </p>
+            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                id: 'cuban-chain-styling',
+                title: 'Top 3 Ways to Style Cuban Chains',
+                description: 'From subtle flex to full ice mode. Master the art of layering like a pro.',
+                image: 'https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=600',
+              },
+              {
+                id: 'jewelry-care-guide',
+                title: 'Keep Your Ice Forever Fresh',
+                description: 'Street-tested tips to maintain that permanent frost. Your jewelry deserves respect.',
+                image: 'https://images.pexels.com/photos/6669856/pexels-photo-6669856.jpeg?auto=compress&cs=tinysrgb&w=600',
+              },
+              {
+                id: 'trap-jewelry-history',
+                title: 'The Culture Behind the Ice',
+                description: 'How trap culture revolutionized jewelry. From the streets to luxury, this is our story.',
+                image: 'https://images.pexels.com/photos/9026226/pexels-photo-9026226.jpeg?auto=compress&cs=tinysrgb&w=600',
+              },
+            ].map((article, index) => (
+              <ScrollReveal key={article.id} delay={index * 0.2} direction="up">
+                <Link
+                  to={`/insights/${article.id}`}
+                  className="group block bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {article.description}
+                    </p>
+                    <div className="mt-4 flex items-center text-blue-400 font-medium text-sm group-hover:text-blue-600 transition-colors">
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-blue-400 to-blue-600 text-white">
         <ScrollReveal>

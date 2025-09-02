@@ -21,6 +21,7 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import EmailConfirmationPage from './pages/EmailConfirmationPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import ProfilePage from './pages/ProfilePage';
+import InsightPage from './pages/InsightPage';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/success" element={<SuccessPage />} />
                 <Route path="/privacy" element={<PrivacyPolicyPage />} />
                 <Route path="/profile" element={<AuthGuard><ProfilePage /></AuthGuard>} />
+                <Route path="/insights/:id" element={<InsightPage />} />
               </Routes>
             </main>
             <Footer />
