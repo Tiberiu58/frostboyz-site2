@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://frostboyzromania.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /supabase/
+
+# Allow important pages for crawling
+Allow: /shop
+Allow: /collections
+Allow: /new
+Allow: /about
+Allow: /contact
+Allow: /shipping-returns
+Allow: /login
+Allow: /faq
+Allow: /lookbook
+
+# Crawl delay (optional)
+Crawl-delay: 1

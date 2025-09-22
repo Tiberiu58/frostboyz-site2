@@ -11,10 +11,11 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Shop', href: '/shop' },
-    { name: 'Lookbook', href: '/lookbook' },
-    { name: 'About', href: '/about' },
-    { name: 'FAQ', href: '/faq' },
+    { name: 'Collections', href: '/collections' },
+    { name: 'New In', href: '/new' },
+    { name: 'About FrostBoyz', href: '/about' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Shipping & Returns', href: '/shipping-returns' },
   ];
 
   const isActive = (path: string) => location.pathname === path;

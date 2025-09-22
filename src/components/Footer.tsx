@@ -25,13 +25,24 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2">
               <li><Link to="/shop" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Shop</Link></li>
-              <li><Link to="/lookbook" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Lookbook</Link></li>
-              <li><Link to="/about" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/faq" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link to="/collections" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Collections</Link></li>
+              <li><Link to="/new" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">New In</Link></li>
+              <li><Link to="/about" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">About FrostBoyz</Link></li>
               <li><Link to="/contact" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/shipping-returns" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Shipping & Returns</Link></li>
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
+            <ul className="space-y-2">
+              <li><Link to="/login" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Account</Link></li>
+              <li><Link to="/faq" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link to="/lookbook" className="text-gray-300 dark:text-gray-400 hover:text-white transition-colors">Lookbook</Link></li>
             </ul>
           </div>
 

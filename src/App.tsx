@@ -25,6 +25,9 @@ import InsightPage from './pages/InsightPage';
 import WishlistPage from './pages/WishlistPage';
 import TermeniConditiiPage from './pages/TermeniConditiiPage';
 import PoliticaConfidentialitateePage from './pages/PoliticaConfidentialitateePage';
+import CollectionsPage from './pages/CollectionsPage';
+import NewInPage from './pages/NewInPage';
+import ShippingReturnsPage from './pages/ShippingReturnsPage';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -43,11 +46,14 @@ function App() {
                 <Route path="/reset-password" element={<AuthGuard requireAuth={false}><ResetPasswordPage /></AuthGuard>} />
                 <Route path="/confirm-email" element={<EmailConfirmationPage />} />
                 <Route path="/shop" element={<ShopPage />} />
+                <Route path="/collections" element={<CollectionsPage />} />
+                <Route path="/new" element={<NewInPage />} />
                 <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/lookbook" element={<LookbookPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/faq" element={<FAQPage />} />
+                <Route path="/shipping-returns" element={<ShippingReturnsPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/success" element={<SuccessPage />} />
                 <Route path="/privacy" element={<PrivacyPolicyPage />} />
