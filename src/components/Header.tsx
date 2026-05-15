@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Heart, Menu, X } from 'lucide-react';
+import { Heart, Menu, ShoppingBag, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import UserMenu from './UserMenu';
 
@@ -22,77 +22,84 @@ const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="mx-4 mt-4">
-        <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg transition-all duration-300">
-      <nav className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="text-xl sm:text-2xl font-bold text-black dark:text-white tracking-tight transition-all duration-300 ease-out hover:text-white hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">
-            <span className="font-black tracking-wider text-shadow-lg uppercase">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {navigation.map((item) => (
+      <div className="mx-3 mt-3 sm:mx-4">
+        <div className="frost-panel rounded-lg transition-all duration-300">
+          <nav className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8" aria-label="Primary navigation">
+            <div className="flex h-16 items-center justify-between">
               <Link
-                key={item.name}
-                to={item.href}
-                className={`block font-medium text-xs sm:text-sm tracking-wide transition-all duration-300 ease-out hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] ${
-                  isActive(item.href) 
-                    ? 'text-blue-400 border-b-2 border-blue-400 pb-1 drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]' 
-                    : 'text-black dark:text-white'
-                }`}
+                to="/"
+                className="text-xl font-bold tracking-tight text-gray-950 transition-colors duration-200 hover:text-sky-600 dark:text-white dark:hover:text-sky-300 sm:text-2xl"
               >
-                {item.name}
+                <span className="font-black uppercase tracking-wider">FrostBoyz</span>
+                <span className="font-black text-sky-500">.</span>
               </Link>
-            ))}
-          </div>
 
-          {/* Cart & Wishlist */}
-          <div className="flex items-center space-x-3 sm:space-x-4">
-            <UserMenu />
-            <Link to="/wishlist" className="text-black dark:text-white hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300 ease-out">
-              <Heart className="h-5 w-5" />
-            </Link>
-            <Link to="/cart" className="relative text-black dark:text-white hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300 ease-out">
-              <ShoppingBag className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-400 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center font-medium shadow-lg">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
+              <div className="hidden items-center gap-5 lg:flex xl:gap-7">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block rounded-md px-1 py-2 text-sm font-semibold tracking-wide transition-colors duration-200 hover:text-sky-600 dark:hover:text-sky-300 ${
+                      isActive(item.href) ? 'text-sky-600 dark:text-sky-300' : 'text-gray-800 dark:text-gray-100'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
 
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-black dark:text-white hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300 ease-out"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t border-white/20">
-            <div className="py-4 space-y-4">
-              {navigation.map((item) => (
+              <div className="flex items-center gap-2 sm:gap-3">
+                <UserMenu />
                 <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block font-medium text-sm tracking-wide transition-colors ease-out hover:text-blue-400 px-3 ${
-                    isActive(item.href) ? 'text-blue-400' : 'text-black dark:text-white'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
+                  to="/wishlist"
+                  aria-label="Wishlist"
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-gray-900 transition-colors duration-200 hover:bg-sky-50 hover:text-sky-700 dark:text-white dark:hover:bg-white/10 dark:hover:text-sky-300"
                 >
-                  {item.name}
+                  <Heart className="h-5 w-5" />
                 </Link>
-              ))}
+                <Link
+                  to="/cart"
+                  aria-label="Cart"
+                  className="relative flex h-11 w-11 items-center justify-center rounded-full text-gray-900 transition-colors duration-200 hover:bg-sky-50 hover:text-sky-700 dark:text-white dark:hover:bg-white/10 dark:hover:text-sky-300"
+                >
+                  <ShoppingBag className="h-5 w-5" />
+                  {cartCount > 0 && (
+                    <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white shadow-lg">
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
+
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                  aria-expanded={isMenuOpen}
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-gray-900 transition-colors duration-200 hover:bg-sky-50 hover:text-sky-700 dark:text-white dark:hover:bg-white/10 lg:hidden"
+                >
+                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
             </div>
-          </div>
-        )}
-      </nav>
+
+            {isMenuOpen && (
+              <div className="border-t border-gray-200 dark:border-white/10 lg:hidden">
+                <div className="py-3">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`block rounded-md px-3 py-3 text-sm font-semibold tracking-wide transition-colors hover:bg-sky-50 dark:hover:bg-white/10 ${
+                        isActive(item.href) ? 'text-sky-600 dark:text-sky-300' : 'text-gray-900 dark:text-white'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </nav>
         </div>
       </div>
     </header>

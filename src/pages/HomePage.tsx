@@ -2,23 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Shield, Truck, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useAuth } from '../hooks/useAuth';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import ScrollReveal from '../components/ScrollReveal';
 import NewsletterSignup from '../components/NewsletterSignup';
 
 const HomePage: React.FC = () => {
-  const { user } = useAuth();
   const [showNewsletter, setShowNewsletter] = useState(false);
 
   useEffect(() => {
     // Check if user has already subscribed to newsletter
     const hasSubscribed = localStorage.getItem('frostboyz-newsletter-subscribed');
+    const hasSeen = localStorage.getItem('frostboyz-newsletter-seen');
     
     // Show newsletter popup after 5 seconds if not subscribed
-    if (!hasSubscribed) {
-      const timer = setTimeout(() => setShowNewsletter(true), 5000);
+    if (!hasSubscribed && !hasSeen) {
+      const timer = setTimeout(() => setShowNewsletter(true), 9000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -37,12 +36,6 @@ const HomePage: React.FC = () => {
     localStorage.setItem('frostboyz-newsletter-seen', 'true');
   };
 
-  const handleNewsletterSuccess = () => {
-    setShowNewsletter(false);
-    // Mark as subscribed so it doesn't show again
-    localStorage.setItem('frostboyz-newsletter-subscribed', 'true');
-  };
-
   return (
     <div className="min-h-screen dark:bg-gray-900 transition-colors duration-300">
       {/* Newsletter Popup */}
@@ -59,17 +52,17 @@ const HomePage: React.FC = () => {
       )}
 
       {/* Hero Section with Spline iframe background */}
-      <section className="relative h-screen flex items-center justify-center text-white overflow-hidden" style={{ backgroundColor: '#020202' }}>
+      <section className="relative flex min-h-[calc(100dvh-5rem)] items-center justify-center overflow-hidden bg-[#020202] text-white">
         {/* Hero background image - optimized for mobile */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 to-black">
           <img
-            src="/20250901_2230_Silver Jewelry Set_remix_01k43c0skhfre96qrsb43v5af3.png"
-            alt="FrostBoyz Premium Jewelry"
-            className="w-full h-full object-cover object-center opacity-10 sm:opacity-15 md:opacity-20"
+            src="/WhatsApp Image 2025-09-01 at 19.11.30.jpeg"
+            alt="Iced-out Cuban chain styled with black streetwear"
+            className="h-full w-full object-cover object-[50%_42%] opacity-45 sm:opacity-50 md:opacity-55"
             loading="eager"
           />
           {/* Mobile gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60 sm:from-black/60 sm:via-black/20 sm:to-black/40"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(96,165,250,0.18),transparent_36%),linear-gradient(to_top,rgba(0,0,0,0.88),rgba(0,0,0,0.48),rgba(0,0,0,0.7))]"></div>
         </div>
 
         {/* Foreground content - optimized spacing for mobile */}
@@ -78,15 +71,15 @@ const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight"
           >
-            <span className="font-black tracking-wider text-shadow-lg uppercase drop-shadow-2xl">FrostBoyz</span><span className="text-blue-400 font-black">.</span>
+            <span className="font-black tracking-wider text-shadow-lg uppercase drop-shadow-2xl">FrostBoyz</span><span className="text-sky-300 font-black">.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 font-medium tracking-wide px-2 sm:px-4 drop-shadow-lg"
+            className="text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6 md:mb-8 font-bold tracking-wide px-2 sm:px-4 drop-shadow-lg"
           >
             Frost never melts.
           </motion.p>
@@ -94,9 +87,9 @@ const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-12 text-gray-200 max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed drop-shadow-md"
+            className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 md:mb-12 text-gray-100 max-w-2xl mx-auto px-2 sm:px-4 leading-8 drop-shadow-md"
           >
-            Born from urban culture. Trap-inspired, icy, bold. Built for the streets, worn like luxury.
+            Bijuterii iced out pentru streetwear: lanturi Cuban, bratari si piese hip hop construite pentru outfituri care ies in fata.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -106,7 +99,7 @@ const HomePage: React.FC = () => {
           >
             <Link
               to="/shop"
-              className="inline-flex items-center bg-white text-black px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base md:text-lg hover:bg-blue-400 hover:text-white transition-all duration-300 group shadow-xl"
+              className="inline-flex min-h-12 items-center rounded-lg bg-white px-6 py-3 text-base font-black text-black shadow-xl transition-all duration-300 hover:bg-sky-300 group sm:px-8 sm:py-4 sm:text-lg"
             >
               Shop the Frost
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -116,13 +109,14 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Featured Collections */}
-      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">Featured Collections</h2>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">Curated frost</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-gray-950 dark:text-white mb-4 px-4">Featured Collections</h2>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
-                Icy look. Zero melt. Discover our most coveted pieces.
+                Lanturi Cuban, bratari iced out si seturi statement pentru look-uri trap, hip hop si urban luxury.
               </p>
             </div>
           </ScrollReveal>
@@ -137,7 +131,7 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <Link
                 to="/shop"
-                className="inline-flex items-center border-2 border-black dark:border-white text-black dark:text-white px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
+                className="inline-flex min-h-12 items-center rounded-lg border-2 border-gray-950 px-8 py-3 font-bold text-gray-950 transition-all duration-300 hover:bg-gray-950 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
               >
                 View All Products
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -148,7 +142,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -159,7 +153,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} delay={i * 0.2} direction="up">
-                <div className="bg-white dark:bg-gray-700 p-6 sm:p-8 rounded-lg shadow-md text-center transition-colors duration-300">
+                <div className="h-full rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-950 sm:p-8">
                   <div className="flex justify-center mb-4">
                     {[...Array(t.rating)].map((_, j) => (
                       <Star key={j} className="h-5 w-5 text-yellow-400 fill-current" />
@@ -191,7 +185,7 @@ const HomePage: React.FC = () => {
             ].map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.15} direction="up">
                 <div className="text-center px-4">
-                  <item.icon className="h-12 w-12 text-blue-400 mx-auto mb-4" />
+                  <item.icon className="h-12 w-12 text-sky-300 mx-auto mb-4" />
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-300">{item.desc}</p>
                 </div>
@@ -201,8 +195,24 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      <section className="bg-white py-16 dark:bg-gray-950">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center">
+              <h2 className="mb-4 text-3xl font-black tracking-tight text-gray-950 dark:text-white sm:text-4xl">
+                Bijuterii iced out pentru outfituri streetwear
+              </h2>
+              <p className="mx-auto max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-300">
+                FrostBoyz aduce in Romania lanturi iced out, bratari Cuban si seturi inspirate de cultura hip hop si trap.
+                Fiecare piesa este aleasa pentru shine, prezenta si styling usor cu tricouri negre, hoodies, denim si fituri de strada.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Jewelry Insights */}
-      <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <section className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -236,7 +246,7 @@ const HomePage: React.FC = () => {
               <ScrollReveal key={article.id} delay={index * 0.2} direction="up">
                 <Link
                   to={`/insights/${article.id}`}
-                  className="group block bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="group block overflow-hidden rounded-lg border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-gray-900"
                 >
                   <div className="aspect-[16/10] overflow-hidden">
                     <img
@@ -246,13 +256,13 @@ const HomePage: React.FC = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors">
                       {article.title}
                     </h3>
                     <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                       {article.description}
                     </p>
-                    <div className="mt-4 flex items-center text-blue-400 font-medium text-sm group-hover:text-blue-600 transition-colors">
+                    <div className="mt-4 flex items-center text-sky-700 dark:text-sky-300 font-bold text-sm transition-colors">
                       Read More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -265,14 +275,14 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-400 to-blue-600 text-white">
+      <section className="py-20 bg-[linear-gradient(135deg,#020617,#0f172a_46%,#075985)] text-white">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Built for the streets. Worn like luxury.</h2>
             <p className="text-lg sm:text-xl mb-6 sm:mb-8">Join the movement. Elevate your game.</p>
             <Link
               to="/shop"
-              className="inline-flex items-center bg-black dark:bg-white text-white dark:text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+              className="inline-flex min-h-12 items-center rounded-lg bg-white px-6 py-3 text-base font-black text-gray-950 transition-colors hover:bg-sky-100 sm:px-8 sm:py-4 sm:text-lg"
             >
               Start Your Collection
               <ArrowRight className="ml-2 h-5 w-5" />

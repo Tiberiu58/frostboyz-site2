@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Loader2, CreditCard } from 'lucide-react';
-import { useAuth } from '../hooks/useAuth';
-import { supabase } from '../lib/supabase';
+import { CreditCard, ShoppingBag } from 'lucide-react';
 
 interface CheckoutButtonProps {
   priceId: string;
@@ -11,103 +9,40 @@ interface CheckoutButtonProps {
   children?: React.ReactNode;
 }
 
-const CheckoutButton: React.FC<CheckoutButtonProps> = ({ 
-  priceId, 
-  mode, 
-  className = '',
-  children 
-}) => {
-  const { user } = useAuth();
-  const [loading, setLoading] = useState(false);
+const CheckoutButton: React.FC<CheckoutButtonProps> = ({ className = '', children }) => {
   const [error, setError] = useState<string | null>(null);
 
-  const handleCheckout = async () => {
-    if (!user) {
-      window.location.href = '/login';
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (!session) {
-        throw new Error('No active session');
-      }
-
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/stripe-checkout`;
-      
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${session.access_token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          price_id: priceId,
-          mode,
-          success_url: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${window.location.origin}/shop`,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create checkout session');
-      }
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        throw new Error('No checkout URL received');
-      }
-    } catch (error: any) {
-      console.error('Checkout error:', error);
-      setError(error.message || 'Failed to start checkout');
-    } finally {
-      setLoading(false);
-    }
+  const handleCheckout = () => {
+    setError('Checkout is disconnected from Supabase. Add a new checkout provider before accepting orders.');
   };
 
   return (
     <div>
       <button
         onClick={handleCheckout}
-        disabled={loading}
-        className={`inline-flex items-center justify-center font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+        className={`inline-flex items-center justify-center font-semibold transition-colors ${className}`}
       >
-        {loading ? (
-          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-        ) : (
-          children ? <CreditCard className="h-4 w-4 mr-2" /> : <ShoppingBag className="h-4 w-4 mr-2" />
-        )}
-        {loading ? 'Processing...' : (children || 'Buy Now')}
+        {children ? <CreditCard className="mr-2 h-4 w-4" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
+        {children || 'Buy Now'}
       </button>
-      
-      {/* Romanian Legal Links */}
-      <div className="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
+
+      <div className="mt-2 text-center text-xs text-gray-500 dark:text-gray-400">
         <p>
-          Prin continuare, sunteți de acord cu{' '}
-          <Link to="/termeni-conditii" className="text-blue-400 hover:text-blue-600 underline">
-            Termenii și Condițiile
-          </Link>
-          {' '}și{' '}
-          <Link to="/politica-confidentialitate" className="text-blue-400 hover:text-blue-600 underline">
-            Politica de Confidențialitate
+          Prin continuare, sunteti de acord cu{' '}
+          <Link to="/termeni-conditii" className="text-sky-600 underline hover:text-sky-800 dark:text-sky-300">
+            Termenii si Conditiile
+          </Link>{' '}
+          si{' '}
+          <Link to="/politica-confidentialitate" className="text-sky-600 underline hover:text-sky-800 dark:text-sky-300">
+            Politica de Confidentialitate
           </Link>
         </p>
       </div>
 
       {error && (
-        <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-sm text-red-700">{error}</p>
-          <button
-            onClick={() => setError(null)}
-            className="text-xs text-red-600 hover:text-red-800 underline mt-1"
-          >
+        <div className="mt-2 rounded-lg border border-amber-200 bg-amber-50 p-3">
+          <p className="text-sm text-amber-800">{error}</p>
+          <button onClick={() => setError(null)} className="mt-1 text-xs text-amber-900 underline">
             Dismiss
           </button>
         </div>

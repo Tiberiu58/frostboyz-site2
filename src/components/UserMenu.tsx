@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, LogOut, Settings, Package } from 'lucide-react';
+import { LogOut, Package, Settings, User } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useSubscription } from '../hooks/useSubscription';
 
@@ -9,39 +9,35 @@ const UserMenu: React.FC = () => {
   const { activePlan } = useSubscription();
   const [isOpen, setIsOpen] = useState(false);
 
+  const menuButtonClass =
+    'flex h-11 items-center gap-2 rounded-full px-3 text-gray-900 transition-colors duration-200 hover:bg-sky-50 hover:text-sky-700 dark:text-white dark:hover:bg-white/10 dark:hover:text-sky-300';
+  const menuItemClass =
+    'flex items-center px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-white/10';
+
   if (!user) {
     return (
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center space-x-2 text-black hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300"
+          aria-label="Open account menu"
+          aria-expanded={isOpen}
+          className={menuButtonClass}
         >
           <User className="h-5 w-5" />
-          <span className="hidden sm:block font-medium">Account</span>
+          <span className="hidden font-medium sm:block">Account</span>
         </button>
 
         {isOpen && (
           <>
-            <div
-              className="fixed inset-0 z-10"
-              onClick={() => setIsOpen(false)}
-            />
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
+            <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+            <div className="absolute right-0 z-20 mt-2 w-48 rounded-lg border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900">
               <div className="py-2">
-                <Link
-                  to="/login"
-                  className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <User className="h-4 w-4 mr-3" />
+                <Link to="/login" className={menuItemClass} onClick={() => setIsOpen(false)}>
+                  <User className="mr-3 h-4 w-4" />
                   Sign In
                 </Link>
-                <Link
-                  to="/signup"
-                  className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <User className="h-4 w-4 mr-3" />
+                <Link to="/signup" className={menuItemClass} onClick={() => setIsOpen(false)}>
+                  <User className="mr-3 h-4 w-4" />
                   Sign Up
                 </Link>
               </div>
@@ -61,57 +57,39 @@ const UserMenu: React.FC = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-black hover:text-white hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)] transition-all duration-300 ease-out"
+        aria-label="Open account menu"
+        aria-expanded={isOpen}
+        className={menuButtonClass}
       >
         <User className="h-5 w-5" />
-        <span className="hidden sm:block font-medium">
+        <span className="hidden max-w-28 truncate font-medium sm:block">
           {user.user_metadata?.full_name || user.email?.split('@')[0]}
         </span>
       </button>
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-10"
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
-            <div className="p-4 border-b border-gray-200">
-              <p className="font-medium text-gray-900">
-                {user.user_metadata?.full_name || 'User'}
-              </p>
-              <p className="text-sm text-gray-600">{user.email}</p>
-              {activePlan && (
-                <p className="text-xs text-blue-600 mt-1 font-medium">
-                  Plan: {activePlan}
-                </p>
-              )}
+          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+          <div className="absolute right-0 z-20 mt-2 w-64 rounded-lg border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-900">
+            <div className="border-b border-gray-200 p-4 dark:border-gray-700">
+              <p className="font-medium text-gray-900 dark:text-white">{user.user_metadata?.full_name || 'User'}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{user.email}</p>
+              {activePlan && <p className="mt-1 text-xs font-medium text-sky-600 dark:text-sky-300">Plan: {activePlan}</p>}
             </div>
-            
+
             <div className="py-2">
-              <Link
-                to="/profile"
-                className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                <Settings className="h-4 w-4 mr-3" />
+              <Link to="/profile" className={menuItemClass} onClick={() => setIsOpen(false)}>
+                <Settings className="mr-3 h-4 w-4" />
                 Profile Settings
               </Link>
-              
-              <Link
-                to="/orders"
-                className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                <Package className="h-4 w-4 mr-3" />
+
+              <Link to="/orders" className={menuItemClass} onClick={() => setIsOpen(false)}>
+                <Package className="mr-3 h-4 w-4" />
                 Order History
               </Link>
-              
-              <button
-                onClick={handleSignOut}
-                className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-              >
-                <LogOut className="h-4 w-4 mr-3" />
+
+              <button onClick={handleSignOut} className={`${menuItemClass} w-full`}>
+                <LogOut className="mr-3 h-4 w-4" />
                 Sign Out
               </button>
             </div>

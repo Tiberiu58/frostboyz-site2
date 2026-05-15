@@ -8,7 +8,6 @@ Sitemap: https://frostboyzromania.com/sitemap.xml
 Disallow: /admin/
 Disallow: /api/
 Disallow: /.env
-Disallow: /supabase/
 
 # Allow important pages for crawling
 Allow: /shop

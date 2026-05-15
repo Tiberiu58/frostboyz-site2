@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { User, Mail, Phone, MapPin, Moon, Sun, Bell, Shield, CreditCard, Package } from 'lucide-react';
+import { User, Mail, Phone, Moon, Sun, Bell, Shield, CreditCard, Package } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../context/ThemeContext';
-import { supabase } from '../lib/supabase';
 
 const ProfilePage: React.FC = () => {
   const { user, signOut } = useAuth();
@@ -37,27 +36,9 @@ const ProfilePage: React.FC = () => {
     setLoading(true);
     setMessage(null);
 
-    try {
-      const { error } = await supabase.auth.updateUser({
-        data: {
-          full_name: profileData.fullName,
-          phone: profileData.phone,
-          address: profileData.address,
-          city: profileData.city,
-          country: profileData.country,
-        }
-      });
-
-      if (error) {
-        setMessage({ type: 'error', text: error.message });
-      } else {
-        setMessage({ type: 'success', text: 'Profile updated successfully!' });
-      }
-    } catch (error: any) {
-      setMessage({ type: 'error', text: 'Failed to update profile' });
-    } finally {
-      setLoading(false);
-    }
+    localStorage.setItem('frostboyz-profile-local', JSON.stringify(profileData));
+    setMessage({ type: 'success', text: 'Profile saved locally. Connect a new backend to sync it across devices.' });
+    setLoading(false);
   };
 
   const handleNotificationChange = (type: keyof typeof profileData.notifications) => {

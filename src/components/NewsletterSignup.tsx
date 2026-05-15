@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, CheckCircle, X } from 'lucide-react';
-import { supabase } from '../lib/supabase';
-import { useAuth } from '../hooks/useAuth';
+import { CheckCircle, Mail, X } from 'lucide-react';
 
 interface NewsletterSignupProps {
   onClose?: () => void;
@@ -10,79 +8,52 @@ interface NewsletterSignupProps {
   showAsModal?: boolean;
 }
 
-const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ 
-  onClose, 
+const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
+  onClose,
   source = 'website',
   className = '',
-  showAsModal = false 
+  showAsModal = false,
 }) => {
-  const { user } = useAuth();
-  const [email, setEmail] = useState(user?.email || '');
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
 
-    try {
-      const apiUrl = 'https://ywifssqfgkcogibrdoil.supabase.co/functions/v1/newsletter-signup';
-      
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
-        },
-        body: JSON.stringify({
-          email,
-          source,
-        }),
-      });
+    const subscribers = JSON.parse(localStorage.getItem('frostboyz-newsletter-local') || '[]') as Array<{
+      email: string;
+      source: string;
+      subscribedAt: string;
+    }>;
 
-      const data = await response.json();
+    localStorage.setItem(
+      'frostboyz-newsletter-local',
+      JSON.stringify([
+        ...subscribers.filter((subscriber) => subscriber.email.toLowerCase() !== email.toLowerCase()),
+        { email, source, subscribedAt: new Date().toISOString() },
+      ]),
+    );
+    localStorage.setItem('frostboyz-newsletter-subscribed', 'true');
+    setSuccess(true);
+    setEmail('');
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to subscribe');
-      }
-
-      setSuccess(true);
-      setEmail('');
-      
-      // Auto-close after success if it's a modal
-      if (showAsModal && onClose) {
-        setTimeout(() => {
-          onClose();
-        }, 2000);
-      }
-    } catch (error: any) {
-      console.error('Newsletter signup error:', error);
-      setError(error.message || 'Failed to subscribe');
-    } finally {
-      setLoading(false);
+    if (showAsModal && onClose) {
+      window.setTimeout(onClose, 1600);
     }
   };
 
   if (success) {
     return (
       <div className={`${showAsModal ? 'text-center' : ''} ${className}`}>
-        <div className="flex items-center justify-center mb-4">
+        <div className="mb-4 flex items-center justify-center">
           <CheckCircle className="h-12 w-12 text-green-500" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Welcome to the Frost Fam! 🧊
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          Check your email for your exclusive 10% off code!
+        <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">Welcome to the Frost Fam!</h3>
+        <p className="mb-4 text-gray-600 dark:text-gray-300">
+          Your email was saved locally. Connect a new email provider when you are ready to send campaigns.
         </p>
         {showAsModal && onClose && (
-          <button
-            onClick={onClose}
-            className="text-blue-400 hover:text-blue-600 font-medium"
-          >
+          <button onClick={onClose} className="font-medium text-sky-600 hover:text-sky-800 dark:text-sky-300">
             Continue Shopping
           </button>
         )}
@@ -95,54 +66,43 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
       {showAsModal && onClose && (
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
+          aria-label="Close newsletter modal"
+          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
         >
           <X className="h-6 w-6" />
         </button>
       )}
-      
+
       <div className={showAsModal ? 'text-center' : ''}>
-        <div className="flex items-center justify-center mb-4">
-          <Mail className="h-8 w-8 text-blue-400 mr-2" />
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-            Join the Frost Fam
-          </h3>
+        <div className="mb-4 flex items-center justify-center">
+          <Mail className="mr-2 h-8 w-8 text-sky-500" />
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">Join the Frost Fam</h3>
         </div>
-        <p className="text-gray-600 dark:text-gray-300 mb-6">
-          Get 10% off your first order + exclusive drops before anyone else
-        </p>
-        
+        <p className="mb-6 text-gray-600 dark:text-gray-300">Get drop updates and launch offers before anyone else.</p>
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && (
-            <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-              <p className="text-red-700 dark:text-red-400 text-sm">{error}</p>
-            </div>
-          )}
-          
           <div className="relative">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-gray-900 outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               required
-              disabled={loading}
             />
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
           </div>
-          
+
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-lg bg-black py-3 font-semibold text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
           >
-            {loading ? 'Subscribing...' : 'Claim 10% Off'}
+            Claim Updates
           </button>
         </form>
-        
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
-          By subscribing, you agree to receive marketing emails. Unsubscribe anytime.
+
+        <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+          Supabase has been removed; this form currently stores signups only in this browser.
         </p>
       </div>
     </div>
