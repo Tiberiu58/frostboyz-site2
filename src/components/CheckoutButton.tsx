@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CreditCard, ShoppingBag } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 interface CheckoutButtonProps {
   priceId: string;
@@ -22,22 +21,13 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({ className = '', childre
         onClick={handleCheckout}
         className={`inline-flex items-center justify-center font-semibold transition-colors ${className}`}
       >
-        {children ? <CreditCard className="mr-2 h-4 w-4" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
-        {children || 'Buy Now'}
+        {children || (
+          <>
+            <ShoppingBag className="mr-2 h-4 w-4" />
+            Buy Now
+          </>
+        )}
       </button>
-
-      <div className="mt-2 text-center text-xs text-gray-500 dark:text-gray-400">
-        <p>
-          Prin continuare, sunteti de acord cu{' '}
-          <Link to="/termeni-conditii" className="text-sky-600 underline hover:text-sky-800 dark:text-sky-300">
-            Termenii si Conditiile
-          </Link>{' '}
-          si{' '}
-          <Link to="/politica-confidentialitate" className="text-sky-600 underline hover:text-sky-800 dark:text-sky-300">
-            Politica de Confidentialitate
-          </Link>
-        </p>
-      </div>
 
       {error && (
         <div className="mt-2 rounded-lg border border-amber-200 bg-amber-50 p-3">
