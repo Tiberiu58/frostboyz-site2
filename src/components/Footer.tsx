@@ -91,6 +91,11 @@ const Footer: React.FC = () => {
               </Link>
             </div>
           </div>
+          <div className="mt-6 text-center">
+            <p className="text-gray-400 dark:text-gray-500 text-sm">
+              Site realizat de <span className="text-white font-medium">Matei Tiberiu</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
